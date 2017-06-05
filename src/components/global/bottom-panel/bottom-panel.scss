@@ -1,0 +1,60 @@
+.bottom-panel {
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  height: 7.1em;
+  background-color: $base-color--primary;
+  transition: transform 400ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      box-shadow: 0 -1px 5px rgba(125, 125, 125, 0.27);
+  @include media("<420px") {
+    height: auto;
+  };
+  &--static {
+    position: absolute;
+  }
+  &--fixed {
+    position: fixed;
+    transform: translate(0, 100%);
+    &.active {
+      transform: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__link {
+      display: inline-block;
+      font-size: 1.9em;
+      text-decoration: underline;
+      font-weight: 500;
+      margin: 0 0.5em;
+      line-height: 1;
+      padding: em-rel(2, 1.9) 0;
+      @include media("<=480px") {
+        font-size: 1.5em;
+      };
+
+  }
+
+  &__item {
+      text-align: center;
+      @include media("<md") {
+        flex: 1;
+      };
+  }
+
+  &__button {
+      white-space: nowrap;
+      @include media("<=480px") {
+        font-size: 1.45em;
+      };
+  }
+}

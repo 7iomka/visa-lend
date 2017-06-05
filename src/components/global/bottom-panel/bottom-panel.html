@@ -1,0 +1,32 @@
+<div class="bottom-panel{% for mod in mods %} bottom-panel--{{ mod }}{% endfor %} {{ customClassList }}" >
+  <div class="container">
+    <nav class="bottom-panel__nav">
+      <ul class="bottom-panel__menu">
+        <li class="bottom-panel__item" {% for mod in mods %}{% if mod == 'static' %}
+        data-aos="fade" data-aos-anchor="header.header" data-aos-duration="450"
+           data-aos-easing="ease-in-sine" data-aos-delay="300"
+        {% endif %} {% endfor %}>
+          <a class="bottom-panel__link modal-link" data-modal-target="#action-measure" href="javascript:;" >Вызвать замерщика-консультанта</a>
+        </li>
+        <li class="bottom-panel__item" {% for mod in mods %}{% if mod == 'static' %}
+        data-aos="fade" data-aos-anchor="header.header" data-aos-duration="450"
+           data-aos-easing="ease-in-sine" data-aos-delay="300"
+        {% endif %} {% endfor %}>
+          {% render "@button--dark", {
+            label: 'Онлайн-калькулятор',
+            customClassList: 'bottom-panel__button scroll-link',
+            attrs: {
+              'data-href': "#calculator"
+            }
+          }, true %}
+        </li>
+        <li class="bottom-panel__item" {% for mod in mods %}{% if mod == 'static' %}
+        data-aos="fade" data-aos-anchor="header.header" data-aos-duration="450"
+           data-aos-easing="ease-in-sine" data-aos-delay="300"
+        {% endif %} {% endfor %}>
+          <a class="bottom-panel__link modal-link" data-modal-target="#action-consult" href="javascript:;" >Задайте вопрос нашему менеджеру</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

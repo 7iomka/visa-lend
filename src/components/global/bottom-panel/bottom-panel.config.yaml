@@ -1,0 +1,7 @@
+variants:
+- name: default
+  context:
+    mods: [static]
+- name: fixed
+  context:
+    mods: [fixed]

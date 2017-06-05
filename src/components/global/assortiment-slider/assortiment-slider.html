@@ -1,0 +1,55 @@
+<div class="assortiment-slider {{ customClassList }}" id="car-park">
+  <!--  slider body-->
+    <div class="assortiment-slider__body">
+      <!--gallery-scene-->
+      <div class="assortiment-slider__scene gallery-scene">
+        <!--gallery scene slider-->
+        <div class="gallery-scene__slider big-image-slider">
+          {% for slide in slides %}
+            <div class="gallery-scene__slide gallery-slide">
+              <div class="gallery-slide__image">
+                {# svg изображение схемы находится в папке c каждым номером и транспортируются галмпом в папку откуда инклудятся#}
+                {% set slideImageSrc = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '.svg' %}
+                {% render "@img-responsive", {
+                  src: slideImageSrc,
+                  customClassList: 'gallery-slide__image-source'
+                } %}
+
+              </div>
+              <div class="gallery-slide__content hidden">
+
+                <!--<div class="gallery-slide__content-title">{{ slide.title }}</div>-->
+                <div class="gallery-slide__content-desc">
+                  <ul>
+                    <li>Длина: <nobr>{{ slide.desc.l }} (м)</nobr></li>
+                    <li>Ширина: <nobr>{{ slide.desc.w }} (м)</nobr></li>
+                    <li>Погрузочная высота: <nobr>{{ slide.desc.h }} (м)</nobr></li>
+                    <li>Грузоподъемность: <nobr>{{ slide.desc.m }} (т)</nobr></li>
+                  </ul>
+                </div>
+              {# тут вставляем все необходимые скрытые дивы с дата атрибутами #}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <!--/gallery scene slider -->
+      </div>
+      <!--/gallery-scene-->
+      <!--gallery-description async -->
+      <div class="assortiment-slider__description gallery-content">
+
+        <!--<h2 class="gallery-content__title"></h2>-->
+        <div class="gallery-content__body"></div>
+      </div>
+    </div>
+      <!-- thumbs navigation -->
+    <div class="assortiment-slider__nav">
+      <div class="assortiment-slider__thumbs small-image-slider">
+        {% for slide in slides %}
+        <div class="assortiment-slider__thumb gallery-thumb">
+          <img class="assortiment-slider__thumb-image gallery-thumb__image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '.png' | path }}" alt="">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
