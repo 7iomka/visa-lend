@@ -1,0 +1,7 @@
+<section class="section countries">
+  <div class="container">
+    {% for table in tables %}
+      {% render "@responsive-table--country", table, true %}
+    {% endfor %}
+  </div>
+</section>

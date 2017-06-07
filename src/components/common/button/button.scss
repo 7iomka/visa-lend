@@ -9,7 +9,6 @@
   vertical-align: middle;
   user-select: none;
   outline: none;
-  text-transform: uppercase;
   transition: 0.4s ease color, 0.4s ease background-color;
   @media print {
     display: none;
@@ -28,6 +27,9 @@
 // PRIMARY
 .c-button--primary {
   background-color: $button-background--primary;
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 10px rgba(255, 103, 93, 0.51);
 
   &:hover {
     background-color: $button-background--primary_hover;
@@ -69,12 +71,28 @@
   // font-size: em($button-fsz, $rem-baseline);
   // @include em(( padding: 18px 28px, ), $button-fsz);
   border-radius: 28px;
-  padding: 1.8em;
+  padding: 1.2em;
   line-height: 1;
   border-radius: 4em; // 4 * 1em
-  @include media(">=414px"){
-    width: 23.3em;
-  };
+  // @include media(">=414px"){
+  //   width: 23.3em;
+  // };
+
+
+  /** new **/
+      position: relative;
+          vertical-align: middle;
+          border: 1px solid transparent;
+display: inline-block;
+text-align: center;
+font-weight: 700;
+      font-size: 1.4em;
+  border-radius: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: em-rel(12,14);
+  padding-bottom: em-rel(12,14);
+box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 // small buttons in filter navigation

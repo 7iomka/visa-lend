@@ -7,21 +7,87 @@
 //   @return url($fonts-base-path + $path);
 // }
 
-// AN BOLD
+// ----------------------------------------------------------------------------
+// Museo Sans
+// ----------------------------------------------------------------------------
+
+/** Museo Sans light **/
 @font-face {
-    font-family:'AN';
-    src: font('AN/AN_Bold.eot');
-	src: font('AN/AN_Bold.eot?#iefix') format('embedded-opentype'),
-		font('AN/AN_Bold.woff2') format('woff2'),
-		font('AN/AN_Bold.woff') format('woff'),
-		font('AN/AN_Bold.ttf') format('truetype'),
-		font('AN/AN_Bold.otf') format('opentype'),
-		font('AN/AN_Bold.svg#AN_Bold') format('svg');
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+000D-FE48;
+  font-family: 'Museo Sans';
+  src: font('Museo_Sans/MuseoSansCyrl-300.eot');
+  src: font('Museo_Sans/MuseoSansCyrl-300.woff2') format('woff2'),
+       font('Museo_Sans/MuseoSansCyrl-300.woff') format('woff'),
+       font('Museo_Sans/MuseoSansCyrl-300.ttf') format('truetype'),
+       font('Museo_Sans/MuseoSansCyrl-300.svg#MuseoSansCyrl-300') format('svg'),
+       font('Museo_Sans/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype');
+  font-weight: 300;
+  font-style: normal;
 }
+
+/** Museo Sans Regular **/
+@font-face {
+  font-family: 'Museo Sans';
+  src: font('Museo_Sans/MuseoSansCyrl-500.eot');
+  src: font('Museo_Sans/MuseoSansCyrl-500.woff2') format('woff2'),
+       font('Museo_Sans/MuseoSansCyrl-500.woff') format('woff'),
+       font('Museo_Sans/MuseoSansCyrl-500.ttf') format('truetype'),
+       font('Museo_Sans/MuseoSansCyrl-500.svg#MuseoSansCyrl-500') format('svg'),
+       font('Museo_Sans/MuseoSansCyrl-500.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+/** Museo Sans Regular italic**/
+@font-face {
+  font-family: 'Museo Sans';
+  src: font('Museo_Sans/MuseoSansCyrl-500Italic.eot');
+  src: font('Museo_Sans/MuseoSansCyrl-500Italic.woff2') format('woff2'),
+       font('Museo_Sans/MuseoSansCyrl-500Italic.woff') format('woff'),
+       font('Museo_Sans/MuseoSansCyrl-500Italic.ttf') format('truetype'),
+       font('Museo_Sans/MuseoSansCyrl-500Italic.svg#MuseoSansCyrl-500Italic') format('svg'),
+       font('Museo_Sans/MuseoSansCyrl-500Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/** Museo Sans Bold **/
+@font-face {
+  font-family: 'Museo Sans';
+  src: font('Museo_Sans/MuseoSansCyrl-700.eot');
+  src: font('Museo_Sans/MuseoSansCyrl-700.woff2') format('woff2'),
+       font('Museo_Sans/MuseoSansCyrl-700.woff') format('woff'),
+       font('Museo_Sans/MuseoSansCyrl-700.ttf') format('truetype'),
+       font('Museo_Sans/MuseoSansCyrl-700.svg#MuseoSansCyrl-700') format('svg'),
+       font('Museo_Sans/MuseoSansCyrl-700.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/** all icons **/
+// @font-face {
+//   font-family: 'vts';
+//   src: font('Vts/vts.eot');
+//   src: font('Vts/vts.eot?#iefix') format('embedded-opentype'),
+//        font('Vts/vts.woff') format('woff'),
+//        font('Vts/vts.ttf') format('truetype'),
+//        font('Vts/vts.svg#vts') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// AN BOLD
+// @font-face {
+//     font-family:'AN';
+//     src: font('AN/AN_Bold.eot');
+// 	src: font('AN/AN_Bold.eot?#iefix') format('embedded-opentype'),
+// 		font('AN/AN_Bold.woff2') format('woff2'),
+// 		font('AN/AN_Bold.woff') format('woff'),
+// 		font('AN/AN_Bold.ttf') format('truetype'),
+// 		font('AN/AN_Bold.otf') format('opentype'),
+// 		font('AN/AN_Bold.svg#AN_Bold') format('svg');
+//     font-weight: 700;
+//     font-style: normal;
+//     font-stretch: normal;
+//     unicode-range: U+000D-FE48;
+// }
 
 
 // AN HEAVY
@@ -41,36 +107,36 @@
 // }
 
 // AR MEDIUM
-@font-face {
-    font-family:'AN';
-    src: font('AN/AN_Medium.eot');
-	src: font('AN/AN_Medium.eot?#iefix') format('embedded-opentype'),
-		font('AN/AN_Medium.woff2') format('woff2'),
-		font('AN/AN_Medium.woff') format('woff'),
-		font('AN/AN_Medium.ttf') format('truetype'),
-		font('AN/AN_Medium.otf') format('opentype'),
-		font('AN/AN_Medium.svg#AN_Medium') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+000D-FE48;
-}
-
-// AR REGULAR
-@font-face {
-    font-family:'AN';
-    src: font('AN/AN_Regular.eot');
-	src: font('AN/AN_Regular.eot?#iefix') format('embedded-opentype'),
-		font('AN/AN_Regular.woff2') format('woff2'),
-		font('AN/AN_Regular.woff') format('woff'),
-		font('AN/AN_Regular.ttf') format('truetype'),
-		font('AN/AN_Regular.otf') format('opentype'),
-		font('AN/AN_Regular.svg#AN_Regular') format('svg');
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+000D-FE48;
-}
+// @font-face {
+//     font-family:'AN';
+//     src: font('AN/AN_Medium.eot');
+// 	src: font('AN/AN_Medium.eot?#iefix') format('embedded-opentype'),
+// 		font('AN/AN_Medium.woff2') format('woff2'),
+// 		font('AN/AN_Medium.woff') format('woff'),
+// 		font('AN/AN_Medium.ttf') format('truetype'),
+// 		font('AN/AN_Medium.otf') format('opentype'),
+// 		font('AN/AN_Medium.svg#AN_Medium') format('svg');
+//     font-weight: 500;
+//     font-style: normal;
+//     font-stretch: normal;
+//     unicode-range: U+000D-FE48;
+// }
+//
+// // AR REGULAR
+// @font-face {
+//     font-family:'AN';
+//     src: font('AN/AN_Regular.eot');
+// 	src: font('AN/AN_Regular.eot?#iefix') format('embedded-opentype'),
+// 		font('AN/AN_Regular.woff2') format('woff2'),
+// 		font('AN/AN_Regular.woff') format('woff'),
+// 		font('AN/AN_Regular.ttf') format('truetype'),
+// 		font('AN/AN_Regular.otf') format('opentype'),
+// 		font('AN/AN_Regular.svg#AN_Regular') format('svg');
+//     font-weight: 400;
+//     font-style: normal;
+//     font-stretch: normal;
+//     unicode-range: U+000D-FE48;
+// }
 // AR UltraLight
 // @font-face {
 //     font-family:'AN';

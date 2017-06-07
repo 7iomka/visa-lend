@@ -1,30 +1,30 @@
-// ----------------------------------------------------------------------------
-// contacts-map
-// ----------------------------------------------------------------------------
-.contacts-map {
-  .modal__body {
-    font-size: inherit;
-    background-color: #064381;
-    background-image: linear-gradient(45deg,#064381 0%, #0362c1 50%, #2266aa 100%);
-  }
-  &__container {
-    position: relative;
-    height: 50em;
-    min-height: calc(100vh - 2*1.16667em);
-  }
-  &__wrapper, #contacts-map {
-    height: 100%;
-    width: 100%;
-  }
-
-  &__preloader-overlay {
-    @extend .transport-geography__preloader-overlay;
-
-  }
-  &__preview {
-    @extend .transport-geography__map-preview;
-  }
-}
+// // ----------------------------------------------------------------------------
+// // contacts-map
+// // ----------------------------------------------------------------------------
+// .contacts-map {
+//   .modal__body {
+//     font-size: inherit;
+//     background-color: #064381;
+//     background-image: linear-gradient(45deg,#064381 0%, #0362c1 50%, #2266aa 100%);
+//   }
+//   &__container {
+//     position: relative;
+//     height: 50em;
+//     min-height: calc(100vh - 2*1.16667em);
+//   }
+//   &__wrapper, #contacts-map {
+//     height: 100%;
+//     width: 100%;
+//   }
+//
+//   &__preloader-overlay {
+//     @extend .transport-geography__preloader-overlay;
+//
+//   }
+//   &__preview {
+//     @extend .transport-geography__map-preview;
+//   }
+// }
 
 // ----------------------------------------------------------------------------
 // Action-modal

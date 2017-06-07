@@ -62,8 +62,8 @@ $color-link--hover: palette(secondary, dark);
 $color-link--active: palette(secondary, light);
 
 // Buttons background
-$button-background--primary: palette(primary);
-$button-background--primary_hover: palette(primary, dark);
+$button-background--primary: palette(primary, dark);
+$button-background--primary_hover: palette(primary);
 $button-background--primary_active: palette(primary, light);
 
 $button-background--secondary: palette(secondary);
@@ -83,3 +83,6 @@ $color-ui-link--active: palette(primary, dark);
 $color-focus: palette(primary, light);
 
 $color-text: black;
+
+$base-color--blue: #0055b0;
+$base-color--green: #00a01a;

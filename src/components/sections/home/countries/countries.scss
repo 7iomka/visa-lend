@@ -1,0 +1,41 @@
+.countries {
+  background-image: linear-gradient(to right,#fdfdfd 0%,#f8f9f8 100%);
+}
+
+.country__block {
+    display: flex;
+    align-items: center;
+}
+
+.country__icon {
+    font-size: 3em;
+    border-radius: 50%;
+}
+
+.country__name {
+  margin-left: 1em;
+  font-size: 1.4em;
+}
+
+
+.country__flag {
+    position: relative;
+    display: flex;
+}
+.country__flag:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgb(240, 240, 240), transparent);
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px rgba(200, 222, 230, 0.52);
+}
+
+.flag-icon:before {
+    position: relative;
+    z-index: 2;
+}

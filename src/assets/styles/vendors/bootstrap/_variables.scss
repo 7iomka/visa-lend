@@ -246,10 +246,10 @@ $grid-gutter-widths: (
 // ) !default;
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
 $container-max-widths: (
-  sm: 960px + $grid-gutter-width-base,
-  md: 960px + $grid-gutter-width-base,
-  lg: 960px + $grid-gutter-width-base,
-  xl: 960px + $grid-gutter-width-base
+  sm: 1170px + $grid-gutter-width-base,
+  md: 1170px + $grid-gutter-width-base,
+  lg: 1170px + $grid-gutter-width-base,
+  xl: 1170px + $grid-gutter-width-base
 ) !default;
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
 

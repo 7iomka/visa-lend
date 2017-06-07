@@ -32,7 +32,7 @@
     "retainLines": true
   },
   "dependencies": {
-    "@frctl/fractal": "latest",
+    "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "latest",
     "@frctl/nunjucks": "latest",
     "autoprefixer": "latest",

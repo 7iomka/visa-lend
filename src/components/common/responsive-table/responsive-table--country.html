@@ -1,0 +1,49 @@
+<div class="table table--country">
+  <div class="table-row table-header">
+    <div class="table-row-item table-row-item--type">
+        <div class="country__block">
+          <div class="country__flag">
+    				<i title="{{ country.name }}" class="flag-icon flag-icon--{{ country.code }} flag-icon--squared country__icon"></i>
+          </div>
+  				<h3 class="country__name" title="{{ country.name }}">{{ country.name }}</h3>
+        </div>
+		</div>
+    <div class="table-row-item table-row-item--term">{{ thead.term }}</div>
+    <div class="table-row-item table-row-item--price">{{ thead.price }}</div>
+    <div class="table-row-item table-row-item--documents">{{ thead.documents }}</div>
+    <div class="table-row-item table-row-item--action">{{ thead.action }}</div>
+  </div>
+  {% for row in rows %}
+    {%- set customRowClassName = ' table-row--body-first' if loop.first -%}
+      {% if row.items.price | isUrgent %}
+        {%- set customRowClassName = ' table-row--urgent' -%}
+      {% endif %}
+    <div class="table-row{{ customRowClassName }}">
+        <div class="table-row-item table-row-item--type" data-header="{{ thead.type | indent(0) }}">{{ row.items.type }}</div>
+        <div class="table-row-item table-row-item--term" data-header="{{ thead.term | indent(0) }}">{{ row.items.term }}</div>
+        {# < Цена > #}
+          {# если у цены значение заканчивается на ! - это срочная цена #}
+          {% if row.items.price | isUrgent %}
+            {% set price = row.items.price | getUrgent %}
+            {% set priceConent = '<div class="price price--urgent">' + price + '</div>' %}
+          {% else %}
+            {% set price = row.items.price %}
+            {% set priceConent = '<div class="price">' + price + '</div>' %}
+          {% endif %}
+        <div class="table-row-item table-row-item--price" data-header="{{ thead.price | indent(0) }}">{{ priceConent }}</div>
+        {# </ Цена > #}
+        <div class="table-row-item table-row-item--documents" data-header="{{ thead.documents | indent(0) }}">{{ row.items.documents }}</div>
+
+        <div class="table-row-item table-row-item--action" data-header="{{ thead.action }}">
+          {% render "@button--primary", {
+           label: 'Оставить заявку',
+           customClassList: 'modal-link',
+           attrs: {
+             'data-modal-target':'#action-order',
+             'data-subject': row.items.type
+           }
+         }, true %}
+        </div>
+    </div>
+  {% endfor %}
+</div>

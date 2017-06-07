@@ -88,6 +88,12 @@ const nunjucks = require('@frctl/nunjucks')({
     pathlink: function(str) {
       return '/components/preview/' + str.toString();
     },
+    isUrgent: function(str) {
+      return /!/.test(str);
+    },
+    getUrgent: function(str) {
+      return str.replace( /!/g, "" );
+    },
   },
   paths: [
     paths.static + '/assets/vectors',
