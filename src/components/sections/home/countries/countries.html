@@ -1,7 +1,59 @@
 <section class="section countries">
-  <div class="container">
-    {% for table in tables %}
-      {% render "@responsive-table--country", table, true %}
-    {% endfor %}
+  {% for category in categories %}
+    <div class="countries__category countries__category--{{ category.slug }}">
+      <div class="container-fluid">
+        <div class="countries__primary-part">
+          <div class="text-center">
+            <h2 class="section__title section__title--underlined">{{ category.name }}</h2>
+          </div>
+          <div class="countries__slider">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                {% for table in category.tables %}
+                  {% set country_name = table.country.name %}
+                  {% set country_code = table.country.code %}
+                  {% set startPrice = table.country.startPrice %}
+                  <div class="swiper-slide countries__slide" data-country="{{ country_name }}" data-category="{{ category.slug }}">
+                    {# Country-block component #}
+                    <div class="country-block" data-country="{{ country_name }}" data-country-code="{{ country_code }}" data-category="{{ category.slug }}">
+                      <div class="country-block__label">
+                        <div class="country-block__flag">
+                          <i title="{{ country_name }}" alt="{{ country_name }}" class="flag-icon flag-icon--{{ country_code }} flag-icon--squared country-block__flag-icon"></i>
+                        </div>
+                        <h3 class="country-block__country-name" title="{{ country_name  }}">{{ country_name  }}</h3>
+                      </div>
+                      <div class="country-block__price-container">
+                        <div class="country-block__price">
+                          Визы от
+                          <span class="country-block__price-value">
+                            <nobr>{{ startPrice }}&nbsp;₽</nobr>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="country-block__detail">
+                        <button class="c-button c-button--secondary country-block__detail-button">
+                          Подробнее
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="countries__tables">
+          {% for table in category.tables %}
+            {% set tableClassName = 'table--country--'+ table.country.code + ' hidden'%}
+            {% set tableSettings = {
+              customClassList: tableClassName
+            } %}
+            {% render "@responsive-table--country",
+            table|objAssign(tableSettings),
+            true %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>

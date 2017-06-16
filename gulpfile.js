@@ -73,15 +73,15 @@ function serve() {
      sync: false,
      watch: true,
      injectChanges: true,
-     port: 3200,
-     proxy: 'http://localhost:3030/', // localhost served url
+     port: 3201,
+     proxy: 'http://localhost:3031/', // localhost served url
   });
 
   browserSync.init({
       injectChanges: true,
       notify: true,
-      port: 3030,
-      proxy: 'http://localhost:3200/', // localhost served url
+      port: 3031,
+      proxy: 'http://localhost:3201/', // localhost served url
 
   });
 

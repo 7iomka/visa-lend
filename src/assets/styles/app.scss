@@ -40,14 +40,15 @@
 @import 'vendors/flags/flag-icons.scss';
 // @import 'vendors/aos/aos.scss';
 // @import 'vendors/jquery.mmenu/jquery.mmenu.oncanvas.scss';
-// @import 'vendors/swiper/swiper.min.scss';
+@import 'vendors/swiper/swiper.min.scss';
+@import 'vendors/swiper/swiper.custom.scss';
 // @import 'vendors/PhotoSwipe/main.scss';
 // @import 'vendors/PhotoSwipe/default-skin/default-skin.scss';
 // @import 'vendors/PhotoSwipe/micro-skin.scss';
 // @import 'vendors/lazyYT/lazyYT.custom.scss';
 // @import 'vendors/chosen/chosen.custom.scss';
-@import 'vendors/flatpickr/flatpickr.min';
-@import 'vendors/flatpickr/flatpickr.custom.scss';
+// @import 'vendors/flatpickr/flatpickr.min';
+// @import 'vendors/flatpickr/flatpickr.custom.scss';
 @import 'vendors/ripple.js/ripple.scss';
 // @import 'vendors/lightgallery/lightgallery.scss';
 // @import 'vendors/jquery.qtip/jquery.qtip.scss';

@@ -101,3 +101,36 @@ hr {
   max-width: 1920px;
   margin: auto;
 }
+
+.section__title {
+    position: relative;
+    text-transform: uppercase;
+    color: #141414;
+    font-size: 3em;
+    display: inline-block;
+    line-height: 1.24;
+    margin-bottom: 2rem;
+    &--underlined {
+
+      margin-bottom: 2rem;
+      &:before {
+        $line: &;
+          content: "";
+          background-color: $base-color--primary;
+          width: 80%;
+          height: 0.2rem;
+          display: block;
+          position: absolute;
+          bottom: -0.5rem;
+          left: 0;
+          right: 0;
+          transition: .5s ease all;
+          @at-root .text-center > #{$line} {
+            margin: {
+              left: auto;
+              right: auto;
+            }
+          }
+      }
+    }
+}

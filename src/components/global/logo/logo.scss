@@ -1,24 +1,47 @@
-.logo {
-  @include media("<md") {
-    flex-basis: 0%;
-    flex-grow: 1;
-    flex: 1 0;
-  };
 
-  &__link {
-    display: block;
+/**
+   * Logo
+   */
+  .logo {
+
+      &__link {
+        display: flex;
+        align-items: center;
+      }
+      &__icon {
+          width: 7.5rem;
+          height: 7.5rem;
+          display: inline-block;
+          background: image('logo.png') 0 0 no-repeat;
+          vertical-align: middle;
+      }
+
+     &__title-wrapper {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 1rem;
+      }
+
+      &__title-part {
+          display: block;
+      }
+
+      &__title-part--first {
+          font-size: 2rem;
+          font-weight: bold;
+      }
+
+      &__title-part--last {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+      }
+
+      &__title-part--sep {
+          width: 15.2rem;
+          height: 0.1rem;
+          background: #148ec7;
+          margin: 3px 0 4px;
+      }
+
   }
-
-  svg {
-    fill: none;
-    @include media("<lg"){
-      height: 70px;
-    };
-    @include media("<md"){
-      display: block;
-      margin: auto;
-      height: 50px;
-    };
-
-  }
-}

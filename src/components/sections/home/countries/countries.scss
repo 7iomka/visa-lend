@@ -1,41 +1,125 @@
 .countries {
   background-image: linear-gradient(to right,#fdfdfd 0%,#f8f9f8 100%);
+  min-height: 800px;
+  &__tables {
+      max-width: 1200px;
+      margin: 2em auto;
+
+  }
+  &__primary-part {
+
+    padding: 7em 2em 2em;
+    background: url(https://www.toptal.com/designers/subtlepatterns/patterns/greyzz.png);
+  }
 }
 
-.country__block {
+
+
+/**
+ * Country-block component
+ */
+
+.country-block {
+  display: flex;
+  align-items: center;
+  &__label {
     display: flex;
     align-items: center;
+  }
+
+  &__flag {
+      position: relative;
+      display: flex;
+      &:before {
+          position: absolute;
+          content: "";
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: linear-gradient(to bottom, rgb(240, 240, 240), transparent);
+          transform: scale(1.1);
+          box-shadow: 0 0 0 2px rgba(200, 222, 230, 0.52);
+      }
+  }
+  &__flag-icon {
+      font-size: 3em;
+      border-radius: 50%;
+      &:before {
+        position: relative;
+        z-index: 2;
+      }
+  }
+
+  &__country-name {
+      margin-left: 1em;
+      font-size: 1.4em;
+  }
 }
 
-.country__icon {
-    font-size: 3em;
-    border-radius: 50%;
-}
 
-.country__name {
-  margin-left: 1em;
-  font-size: 1.4em;
-}
-
-
-.country__flag {
+/**
+ * Slider setup
+ */
+.countries__slider {
+  .swiper-wrapper {
+      margin: auto;
+  }
+  // country-block component mod styles
+  .country-block {
+    $block: &;
+    display: block;
+    margin-bottom: 1em;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: 4px 4px 0 rgba(45,70,104,.06), 0 0 0 1px rgba(45,70,104,.06);
     position: relative;
-    display: flex;
-}
-.country__flag:before {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(to bottom, rgb(240, 240, 240), transparent);
-    transform: scale(1.1);
-    box-shadow: 0 0 0 2px rgba(200, 222, 230, 0.52);
-}
+    overflow: hidden;
+    &__country-name {
+        font-size: 1.8em;
+    }
+    &__price-container {
+      position: relative;
+      margin: 1em -2em -2em;
+      padding: 0.5em 2em;
+      background: rgba(248, 249, 248, 0.55);
+      text-align: right;
+    }
 
-.flag-icon:before {
-    position: relative;
-    z-index: 2;
+    &__price {
+      font-size: 1.4em;
+      color: #012b07;
+      &-value {
+        font-size: em-rel(2.5, 1.4);
+        color: $base-color--green;
+      }
+    }
+    &__detail {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(251, 254, 255, 0.92);
+        border: 1px solid rgba(0, 128, 0, 0.39);
+          opacity: 0;
+         visibility: hidden;
+         transition: 0.5s ease;
+
+        &-button {
+            position: absolute;
+            color: white;
+            background: #42a01a;
+        }
+    }
+    @at-root #{$block}:hover .country-block__detail {
+       opacity: 1;
+       visibility: visible;
+     }
+  }
 }

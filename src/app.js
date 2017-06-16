@@ -38,14 +38,14 @@ import deferImages from "utils/defer-images.js";
 	// init modal-links && fancybox set-up
 	import modalActions from './components/global/modal/modal.js';
 	// yutube preload
-	import videoReview from './components/common/video-review/video-review.js';
+	// import videoReview from './components/common/video-review/video-review.js';
 	// init scroll-links to target
 	// import scrollLinks from './components/global/scroll-link/scroll-link.js';
 
 	// ajax && validation for all siteModals
 	import siteModals from './components/partials/site-modals/site-modals.js';
 	// calendar component
-	import './components/common/calendar/calendar.js';
+	// import './components/common/calendar/calendar.js';
 	// import './components/common/gallery-slider/gallery-slider.js';
 	// import './components/common/goup/goup.js';
 	// import './components/common/news-list/news-list.js';
@@ -72,7 +72,8 @@ import deferImages from "utils/defer-images.js";
 
   //
   // import './components/common/accordion/accordion-init.js';
-
+import headerActions from './components/partials/site-header/site-header.js';
+import coutriesActions from './components/sections/home/countries/countries.js';
 
 
 // init actions
@@ -84,6 +85,7 @@ domready(function () {
   const publicApi = {
 		viewportUnitsBuggyfill: vubInstance,
 		deferImages: deferImages.init(),
+		headerActions: headerActions.init(),
 		// headerMenu: headerMenu.init(),
 		// scrollLinks: scrollLinks.init(),
 		// gallery: gallery.init(),
@@ -91,6 +93,7 @@ domready(function () {
 		// mapActions: mapActions.init(),
 		modalActions: modalActions.init(),
 		siteModals: siteModals.init(),
+		coutriesActions: coutriesActions.init(),
 		// offerActions: offerActions.init(),
   }
 

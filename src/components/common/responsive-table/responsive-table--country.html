@@ -1,11 +1,11 @@
-<div class="table table--country">
+<div class="table table--country {{ customClassList }}">
   <div class="table-row table-header">
     <div class="table-row-item table-row-item--type">
-        <div class="country__block">
-          <div class="country__flag">
-    				<i title="{{ country.name }}" class="flag-icon flag-icon--{{ country.code }} flag-icon--squared country__icon"></i>
+        <div class="country-block">
+          <div class="country-block__flag">
+    				<i title="{{ country.name }}" class="flag-icon flag-icon--{{ country.code }} flag-icon--squared country-block__flag-icon"></i>
           </div>
-  				<h3 class="country__name" title="{{ country.name }}">{{ country.name }}</h3>
+  				<h3 class="country-block__country-name" title="{{ country.name }}">{{ country.name }}</h3>
         </div>
 		</div>
     <div class="table-row-item table-row-item--term">{{ thead.term }}</div>

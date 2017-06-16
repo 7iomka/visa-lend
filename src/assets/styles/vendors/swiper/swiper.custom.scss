@@ -1,0 +1,29 @@
+.swiper-button-prev, .swiper-button-next {
+  // background: none!important;
+  width: 4.8em;
+  height: 4.8em;
+  margin-top: -2.4em;
+  transition: 0.25s ease-in-out;
+  svg {
+    height: 100%;
+    path {
+      transition: 0.25s ease-in-out;
+      fill: $base-color--secondary;
+    }
+  }
+  &:hover svg path {
+    fill: $white;
+  }
+}
+.swiper-button-prev {
+  left: 0;
+  &:hover {
+    transform: translate3d(-0.4em, 0, 0);
+  }
+}
+.swiper-button-next {
+  right: 0;
+  &:hover {
+    transform: translate3d(0.4em, 0, 0);
+  }
+}

@@ -13,11 +13,23 @@
 
            <div class="col-12 col-md-5">
              <div class="header__contacts" data-aos="fade-down">
-               <ul class="header__phones">
-                 <li>
-                   <a href="tel:+78123275127" class="phone">+7 (812) 327-51-27</a>
-                 </li>
-               </ul>
+                 <div class="header__contacts-phones">
+                     <div class="header__contacts-phone"><i class="fa fa-mobile-phone"></i><a href="tel:84951504656" class="header-data__link header__contacts-phone-link" >+ 7 (495) 150-46-56</a></div>
+                     <div class="header__contacts-phone"><i class="fa fa-phone"></i><a href="tel:88005007388" class="header-data__link header__contacts-phone-link">8 800 700-73-88</a></div>
+                 </div>
+                  <!-- end header-data (office data) -->
+                  <div class="header__contacts-office">
+                      <div class="header__contacts-office-adress">г.Москва, ул. Ленинский проспект 2а, оф.736</div>
+                        {# <div class="header-office__days-wrapper">
+                          <div class="header-office__adress-days">пн-пт:</div>
+                          <div class="header-office__adress-hourds">09<sup>00</sup>-20<sup>00</sup></div>
+                        </div>
+                        <div class="header-office__days-wrapper">
+                          <div class="header-office__adress-days">сб:</div>
+                          <div class="header-office__adress-hourds">10<sup>00</sup>-17<sup>00</sup></div>
+                        </div> #}
+
+                  </div>
              </div>
            </div>
          </div>
@@ -25,8 +37,42 @@
     </div>
   <!--  <div class="header__square-shadow header__square-shadow--mobile"></div>-->
     <div class="header__body">
+    <div class="header__slideshow">
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
 
+              <div class="swiper-slide" style="background-image:url(/assets/images/sections/header/slider/2.jpg);">
+                <div class="header__slide" style="background: rgba(16, 16, 16, 0.61);">
+                  <div class="container">
+                    <h1 class="site-title"> Оформляем визы в <span class="strn">70 стран мира</span><span class="sb"><span style="background: rgba(27, 17, 6, 0.48);">без броней,</span></span> <span class="sb"><span style="background: rgba(27, 17, 6, 0.48);" >без доверенностей и без личной подачи!<span class="ps">*</span></span></span></h1>
+                    <p class="site-subtitle">Цена указана под ключ со всеми сборами!</p>
+                    <div class="ps-desc">
+                      * - если сдана биометрия для Шенгена
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide" style="background-image:url(https://smartslider3.com/wp-content/uploads/slider176/adventurebackground.jpg)">
+                <div class="header__slide">
+                  <div class="container">
+                    <h1 class="site-title"> Оформляем визы в <span class="strn">70 стран мира</span><span class="sb"><span>без броней,</span></span> <span class="sb"><span >без доверенностей и без личной подачи!<span class="ps">*</span></span></span></h1>
+                    <p class="site-subtitle">Цена указана под ключ со всеми сборами!</p>
+                    <div class="ps-desc">
+                      * - если сдана биометрия для Шенгена
+                    </div>
+                  </div>
+                </div>
+              </div>
 
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination swiper-pagination-white"></div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next swiper-button-white"></div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+      </div>
+    </div>
+{#
       <div class="header__relative-content">
         <div class="container">
           <h1 class="site-title">
@@ -42,6 +88,6 @@
            }, true %}
           </div>
         </div>
-      </div>
+      </div> #}
 
    </header>
