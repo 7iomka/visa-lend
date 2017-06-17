@@ -8,7 +8,10 @@ domready(function () {
         nextButton: '.header__slideshow .swiper-button-next',
         prevButton: '.header__slideshow .swiper-button-prev',
         spaceBetween: 30,
-        effect: 'fade'
+        effect: 'fade',
+        loop: true,
+        autoplayDisableOnInteraction: false,
+        autoplay: 5000,
     });
   }
 });
