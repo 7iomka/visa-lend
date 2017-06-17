@@ -143,432 +143,132 @@ context:
             term: 7-10 р.д.
             price: 7 000
             documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+    - country:
+        name: Великобритания
+        code: gb
+        startPrice: 2600
+      rows:
+        - items:
+            type: 180/180
+            term: 7-15 р.д.
+            price: 2 600 <div class="sbor">+ сбор 87 £</div>
+            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+        - items:
+            type: 180/180
+            term: 3 р.д.
+            price: 3 100 <div class="sbor">+ сбор 237 £</div>!
+            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+        - items:
+            type: на 2 года
+            term: 7-15 р.д.
+            price: 3 300 <div class="sbor">+ сбор 324 £</div>
+            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
   - name: Азия
     slug: asia
     tables:
     - country:
-        name: Тест-азия
-        code: bg
-        startPrice: 4000
+        name: Таиланд
+        code: th
+        startPrice: 1500
       rows:
         - items:
-            type: 90 дней
-            term: 5 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            type: 60/90
+            term: 6 р.д.
+            price: 1 500 <div class="sbor">+сбор 40$</div>
+            documents: "---"
         - items:
-            type: 90 дней - срочная
-            term: 2-3 р.д.
-            price: 7 000!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 5-7 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год - срочная <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 2-3 р.д.
-            price: 7 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1-5 лет <span class='condition'>(владельцы недвижимости)</span>
-            term: 5-7 р.д.
-            price: 5 500
-            documents: "загранпаспорт, фото, \nсправка с работы, \nфинансовая гарантия + документы на недвижимость"
-        - items:
-            type: Виза Д
-            term: "-"
-            price: От 21 500
-            documents: уточните у менеджера
-        - items:
-            type: Для граждан других государств
-            term: 7-12 р.д.
-            price: 6 500
-            documents: паспорт, фото, регистрация в РФ, финансовая гарантия
+            type: 60/90
+            term: 3 р.д.
+            price: 2 500 <div class="sbor">+сбор 40$</div>!
+            documents: "---"
     - country:
-        name: Испания
-        code: es
-        startPrice: 7000
-      rows:
-        - items:
-            type: до 2-х лет
-            term: 4-6 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: до 2-х лет - срочная
-            term: 3 р.д. бизн.
-            price: 10 200!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия + приглашение"
-    - country:
-        name: Италия
-        code: it
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5-7 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Нидерланды
-        code: nl
-        startPrice: 6000
-      rows:
-        - items:
-            type: до года <span class='condition'>(при наличии двух шенгенов)</span>
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Греция
-        code: gr
-        startPrice: 6500
+        name: Япония
+        code: jp
+        startPrice: 3000
       rows:
         - items:
             type: до 3-х лет
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            term: 7 р.д.
+            price: 3 000
+            documents: "---"
+        - items:
+            type: до 3-х лет
+            term: 4 р.д.
+            price: 5 000!
+            documents: "---"
     - country:
-        name: Франция
-        code: fr
-        startPrice: 6000
+        name: Индия
+        code: in
+        startPrice: 4300
       rows:
         - items:
-            type: до 5 лет
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            type: 90 дней однокр.
+            term: 7 р.д.
+            price: 4 300
+            documents: "---"
         - items:
-            type: до 5 лет - срочная
-            term: 3 р.д.
-            price: 11 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Чехия
-        code: cz
-        startPrice: 6500
-      rows:
+            type: 180 дней однокр.
+            term: 7 р.д.
+            price: 4 600
+            documents: "---"
         - items:
-            type: до года
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Швейцария
-        code: ch
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Латвия
-        code: lv
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Финляндия
-        code: fi
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 7-10 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            type: 180 дней 2-х крат.
+            term: 7 р.д.
+            price: 7 700
+            documents: "---"
   - name: Америка
     slug: america
     tables:
     - country:
-        name: Тест-америка
-        code: bg
-        startPrice: 4000
-      rows:
-        - items:
-            type: 90 дней
-            term: 5 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: 90 дней - срочная
-            term: 2-3 р.д.
-            price: 7 000!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 5-7 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год - срочная <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 2-3 р.д.
-            price: 7 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1-5 лет <span class='condition'>(владельцы недвижимости)</span>
-            term: 5-7 р.д.
-            price: 5 500
-            documents: "загранпаспорт, фото, \nсправка с работы, \nфинансовая гарантия + документы на недвижимость"
-        - items:
-            type: Виза Д
-            term: "-"
-            price: От 21 500
-            documents: уточните у менеджера
-        - items:
-            type: Для граждан других государств
-            term: 7-12 р.д.
-            price: 6 500
-            documents: паспорт, фото, регистрация в РФ, финансовая гарантия
-    - country:
-        name: Испания
-        code: es
-        startPrice: 7000
-      rows:
-        - items:
-            type: до 2-х лет
-            term: 4-6 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: до 2-х лет - срочная
-            term: 3 р.д. бизн.
-            price: 10 200!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия + приглашение"
-    - country:
-        name: Италия
-        code: it
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5-7 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Нидерланды
-        code: nl
-        startPrice: 6000
-      rows:
-        - items:
-            type: до года <span class='condition'>(при наличии двух шенгенов)</span>
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Греция
-        code: gr
-        startPrice: 6500
+        name: 'США <span class="country-block__country-name-prefix">(биометрия)</span>'
+        code: us
+        startPrice: 1500
       rows:
         - items:
             type: до 3-х лет
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            term: ~6 р.д.
+            price: 2 500 <div class="sbor">+сбор 160$</div><div>без приглашения +500 р.</div>
+            documents: "---"
+        - items:
+            type: мульти
+            term: ~6 р.д.
+            price: 2 500 <div class="sbor">+сбор 160$</div><div>без приглашения +500 р.</div>
+            documents: "---"
     - country:
-        name: Франция
-        code: fr
-        startPrice: 6000
+        name: 'Канада <span class="country-block__country-name-prefix">(биометрия)</span>'
+        code: ca
+        startPrice: 3200
       rows:
         - items:
-            type: до 5 лет
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            type: до 10 лет
+            term: 2-3 недели
+            price: 3 200 <div class="sbor">+сбор 7 000 р.</div>
+            documents: "---"
         - items:
-            type: до 5 лет - срочная
-            term: 3 р.д.
-            price: 11 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Чехия
-        code: cz
-        startPrice: 6500
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Швейцария
-        code: ch
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Латвия
-        code: lv
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Финляндия
-        code: fi
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 7-10 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-  - name: Австралия и Новая Зеландия
+            type: мульти
+            term: 2-3 недели
+            price: 3 200 <div class="sbor">+сбор 7 000 р.</div>
+            documents: "---"
+  - name: Австралия, Новая Зеландия
     slug: australia_and_new_zealand
     tables:
     - country:
-        name: Тест-австралия
-        code: bg
-        startPrice: 4000
+        name: Австралия
+        code: au
+        startPrice: 3200
       rows:
         - items:
-            type: 90 дней
-            term: 5 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: 90 дней - срочная
-            term: 2-3 р.д.
-            price: 7 000!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 5-7 р.д.
-            price: 4 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1 год - срочная <span class='condition'>(при отъезженной Болгарской визе)</span>
-            term: 2-3 р.д.
-            price: 7 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: на 1-5 лет <span class='condition'>(владельцы недвижимости)</span>
-            term: 5-7 р.д.
-            price: 5 500
-            documents: "загранпаспорт, фото, \nсправка с работы, \nфинансовая гарантия + документы на недвижимость"
-        - items:
-            type: Виза Д
-            term: "-"
-            price: От 21 500
-            documents: уточните у менеджера
-        - items:
-            type: Для граждан других государств
-            term: 7-12 р.д.
-            price: 6 500
-            documents: паспорт, фото, регистрация в РФ, финансовая гарантия
+            type: 90 дней - год
+            term: ~2-4 недели
+            price: 3 200 р <div class="sbor">+сбор 136,5 AUD$</div>
+            documents: "---"
     - country:
-        name: Испания
-        code: es
-        startPrice: 7000
+        name: Новая Зеландия
+        code: nz
+        startPrice: 3200
       rows:
         - items:
-            type: до 2-х лет
-            term: 4-6 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: до 2-х лет - срочная
-            term: 3 р.д. бизн.
-            price: 10 200!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия + приглашение"
-    - country:
-        name: Италия
-        code: it
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5-7 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Нидерланды
-        code: nl
-        startPrice: 6000
-      rows:
-        - items:
-            type: до года <span class='condition'>(при наличии двух шенгенов)</span>
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Греция
-        code: gr
-        startPrice: 6500
-      rows:
-        - items:
-            type: до 3-х лет
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Франция
-        code: fr
-        startPrice: 6000
-      rows:
-        - items:
-            type: до 5 лет
-            term: 5-7 р.д.
-            price: 6 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-        - items:
-            type: до 5 лет - срочная
-            term: 3 р.д.
-            price: 11 500!
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Чехия
-        code: cz
-        startPrice: 6500
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 6 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Швейцария
-        code: ch
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Латвия
-        code: lv
-        startPrice: 7500
-      rows:
-        - items:
-            type: до года
-            term: 5 р.д.
-            price: 7 500
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
-    - country:
-        name: Финляндия
-        code: fi
-        startPrice: 7000
-      rows:
-        - items:
-            type: до года
-            term: 7-10 р.д.
-            price: 7 000
-            documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
+            type: до 90 дней
+            term: ~2-4 недели
+            price: 3 200 <div class="sbor">+сбор 1 900 р.</div>
+            documents: "---"

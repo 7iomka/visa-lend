@@ -1,6 +1,6 @@
 .countries {
   background-image: linear-gradient(to right,#fdfdfd 0%,#f8f9f8 100%);
-  min-height: 800px;
+  min-height: 1500px;
   /**
    * Categories
    */
@@ -9,7 +9,38 @@
        justify-content: center;
        align-items: center;
        padding-top: 7em;
+       padding-bottom: 2em;
+       @include media("<lg"){
+         justify-content: flex-start;
+         overflow-x: auto;
+         min-height: 0.01%;
+         overflow-y: hidden;
+         -ms-overflow-style: -ms-autohiding-scrollbar;
+
+         &::-webkit-scrollbar {
+             width: 2px;
+         }
+
+        //  &::-webkit-scrollbar-track {
+        //      background: #FFFFFF;
+        //  }
+
+         &::-webkit-scrollbar-thumb {
+             background: #e2e2e2;
+         }
+       };
   }
+  /**
+   * Empty block for margin
+   */
+   .countries__empty-block {
+       &-inner {
+           width: 2em;
+           height: 2em;
+       }
+   }
+
+
   &__category {
       $cat: &;
       padding: 1.5em 1.5em 0.75em;
@@ -18,9 +49,22 @@
       border: 0.2rem solid transparent;
       border-radius: 8px;
       transition: border-color 0.5s cubic-bezier(.25,.8,.25,1);
-
+      white-space: nowrap;
+      &:first-child {
+        margin-left: 15px;
+      }
       // title
       &-title {
+        @include media("<xl"){
+          font-size: 2.7em;
+        };
+        @include media("<md"){
+          margin-bottom: 0.6em;
+          font-size: 2.5em;
+        };
+        @include media("<sm"){
+          font-size: 2.2em;
+        };
         &:before {
           width: 100%;
           transition: 0.3s cubic-bezier(.25,.8,.25,1);
@@ -47,28 +91,31 @@
           border-color: $base-color--green;
           background: white;
           background: #fff;
-          box-shadow: 0 1rem 2rem rgba(52, 58, 53, 0.19), 0 10px 10px rgba(255, 255, 255, 0.22);
+          // box-shadow: 0 1rem 2rem rgba(52, 58, 53, 0.19), 0 10px 10px rgba(255, 255, 255, 0.22);
+          // filter: drop-shadow(0 0 5px white) drop-shadow(0 0 15px #f0fff1);
           user-select: none;
 
 
           &:before {
-              $w: 2em;
-              $h: 2em;
-              $border_w: 0.2rem;
-              content: "";
-              position: absolute;
-              top: calc(100% - #{$border_w/2} - #{$h/2});
-              left: 0;
-              right: 0;
-              margin: auto;
-              height: $w;
-              width: $h;
-              background: white;
-              transform: rotate(45deg);
-              border-bottom: inherit;
-              border-right: inherit;
-              box-shadow: inherit;
-              z-index: 0;
+              @include media(">=sm"){
+                $w: 2em;
+                $h: 2em;
+                $border_w: 0.2rem;
+                content: "";
+                position: absolute;
+                top: calc(100% - #{$border_w/2} - #{$h/2});
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: $w;
+                width: $h;
+                background: white;
+                transform: rotate(45deg);
+                border-bottom: inherit;
+                border-right: inherit;
+                box-shadow: inherit;
+                z-index: 0;
+              };
           }
           &:after {
             content: "";
@@ -95,16 +142,28 @@
    * Sliders
    */
    &__sliders {
-       margin: 4em 0;
+       margin: 2em 0 4em;
+       @include media("<lg"){
+             padding-bottom: 8em;
+       };
    }
   /**
    * Tables
    */
   &__tables {
-      max-width: 1200px;
       margin: 2em auto;
-
+      .preloader {
+        z-index: 1;
+        min-height: 15em;
+      }
+      .table {
+        display: none;
+        &.active {
+          display: flex;
+        }
+      }
   }
+
 
 }
 
@@ -149,7 +208,7 @@
 
   &__country-name {
       margin-left: 1em;
-      font-size: 1.4em;
+      font-size: 1.2em
   }
 }
 
@@ -158,6 +217,88 @@
  * Slider setup
  */
 .countries__slider {
+  position: relative;
+  @include media(">=lg", "<1300px"){
+    padding: 0 6em;
+  };
+  // increase font-size for small devices
+  @include media("<md"){
+      font-size: 1.25em;
+  };
+  @include media("<sm"){
+      font-size: 1.4em;
+  };
+  .swiper-container {
+    padding: 4px;
+  }
+  .swiper-button-prev, .swiper-button-next {
+      background-color: #ffffff;
+      background-size: 3.8em 3.8em;
+      height: 6.4em;
+      box-shadow: 4px 4px 0 rgba(45, 70, 104, 0.06), 0 0 0 1px rgba(45, 70, 104, 0.06);
+      filter: grayscale(0.9);
+      &:hover {
+        filter: grayscale(0);
+      }
+      @include media(">=sm","<lg"){
+        top: auto;
+        bottom: -6em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 5em;
+        height: 5em;
+        background-size: 3em 3em;
+      };
+      @include media("<400px"){
+        top: auto;
+        bottom: -6em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 5em;
+        height: 5em;
+        background-size: 3em 3em;
+      };
+
+  }
+  .swiper-button-prev {
+      @include media(">=1300px"){
+        transform: translate(-6em, 0);
+        &:hover {
+
+        }
+      };
+      @include media(">lg","<1300px"){
+        transform: none;
+      };
+      @include media(">=sm","<lg"){
+        transform: translate(-3.3em, 0);
+      };
+      @include media("<sm"){
+        transform: none;
+      };
+      @include media("<400px"){
+        transform: translate(-70%, 0);
+      };
+  }
+  .swiper-button-next {
+    @include media(">=1300px"){
+      transform: translate(6em, 0);
+      &:hover {
+
+      }
+    };
+    @include media(">lg","<1300px"){
+      transform: none;
+    };
+    @include media(">=sm","<lg"){
+      transform: translate(3.3em, 0);
+    };
+    @include media("<400px"){
+      transform: translate(70%, 0);
+    };
+  }
   .swiper-wrapper {
       margin: auto;
   }
@@ -171,8 +312,21 @@
     box-shadow: 4px 4px 0 rgba(45,70,104,.06), 0 0 0 1px rgba(45,70,104,.06);
     position: relative;
     overflow: hidden;
+    @include media("<sm"){
+     width: 58%;
+     min-width: 22em;
+     margin-left: auto;
+     margin-right: auto;
+    };
+    @include media("<400px"){
+      width: auto;
+      max-width: 100%;
+    };
     &__country-name {
         font-size: 1.8em;
+        &-prefix {
+          font-size: 75%;
+        }
     }
     &__data-container {
       position: relative;
@@ -236,6 +390,8 @@
           opacity: 0;
          visibility: hidden;
          transition: 0.5s ease;
+         z-index: 1;
+         cursor: pointer;
 
         &-button {
             position: absolute;
@@ -246,6 +402,42 @@
     @at-root #{$block}:hover .country-block__detail {
        opacity: 1;
        visibility: visible;
-     }
+    }
+
+    // more container with icon for touch-devices
+    &__more {
+        position: absolute;
+        right: 0.5em;
+        top: 0.6em;
+        font-size: 2.5em;
+        color: #7c899a;
+        transition: 0.4s ease-out;
+        opacity: 1;
+
+        &-icon{
+          background: #f9f9f9;
+          width: 1.2em;
+          height: 1.2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3px;
+        }
+    }
+    @at-root #{$block}:hover .country-block__more {
+      transform: translate(0, 30%);
+      opacity: 0;
+    }
+
+
   }
+}
+
+/** Custom classes **/
+.sbor {
+    font-size: 85%;
+    color: #776d02;
+    &+div {
+      font-size: 85%;
+    }
 }

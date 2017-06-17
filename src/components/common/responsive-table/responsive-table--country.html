@@ -3,9 +3,9 @@
     <div class="table-row-item table-row-item--type">
         <div class="country-block">
           <div class="country-block__flag">
-    				<i title="{{ country.name }}" class="flag-icon flag-icon--{{ country.code }} flag-icon--squared country-block__flag-icon"></i>
+    				<i title="{{ country.name | striptags }}" class="flag-icon flag-icon--{{ country.code }} flag-icon--squared country-block__flag-icon"></i>
           </div>
-  				<h3 class="country-block__country-name" title="{{ country.name }}">{{ country.name }}</h3>
+  				<h3 class="country-block__country-name" title="{{ country.name | striptags }}">{{ country.name }}</h3>
         </div>
 		</div>
     <div class="table-row-item table-row-item--term">{{ thead.term }}</div>

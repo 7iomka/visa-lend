@@ -24,6 +24,10 @@ variants:
   context:
     label: Button with background primary
     mods: [primary]
+- name: primary-green
+  context:
+    label: Button with background green and primary styles
+    mods: [primary-green]
 - name: secondary
   context:
     label: Button with background secondary

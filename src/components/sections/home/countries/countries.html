@@ -6,46 +6,33 @@
         <div class="countries__category-inner text-center">
           <h2 class="section__title section__title--underlined countries__category-title countries__category-title--{{ category.slug }}">{{ category.name }}</h2>
         </div>
-
       </div>
     {% endfor %}
-  </div>
-  {# Coutries tables #}
-  <div class="countries__tables">
-    <div class="container">
-      {% for category in categories %}
-        {% for table in category.tables %}
-          {% set tableClassName = 'table--country--'+ table.country.code + ' hidden'%}
-          {% set tableSettings = {
-            customClassList: tableClassName
-          } %}
-          {% render "@responsive-table--country",
-          table|objAssign(tableSettings),
-          true %}
-        {% endfor %}
-      {% endfor %}
+    <!-- just for margin -->
+    <div class="countries__empty-block">
+      <div class="countries__empty-block-inner">
+      </div>
     </div>
   </div>
-
   {# Countries sliders with countries #}
   <div class="countries__sliders">
     <div class="container">
       {% for category in categories %}
-      <div class="countries__slider countries__slider--{{ category.slug }} {% if not loop.first %}hidden{% endif %}" data-category="{{ category.slug }}">
+      <div class="countries__slider countries__slider--{{ category.slug }} {% if not loop.first %}hidden{% else %}active{% endif %}" data-category="{{ category.slug }}">
         <div class="swiper-container">
           <div class="swiper-wrapper">
             {% for table in category.tables %}
               {% set country_name = table.country.name %}
               {% set country_code = table.country.code %}
               {% set startPrice = table.country.startPrice %}
-              <div class="swiper-slide countries__slide" data-country="{{ country_name }}" data-category="{{ category.slug }}">
+              <div class="swiper-slide countries__slide" data-country="{{ country_name | striptags }}" data-category="{{ category.slug }}">
                 {# Country-block component #}
-                <div class="country-block" data-country="{{ country_name }}" data-country-code="{{ country_code }}" data-category="{{ category.slug }}">
+                <div class="country-block" data-country="{{ country_name | striptags }}" data-country-code="{{ country_code }}" data-category="{{ category.slug }}">
                   <div class="country-block__label">
                     <div class="country-block__flag">
-                      <i title="{{ country_name }}" alt="{{ country_name }}" class="flag-icon flag-icon--{{ country_code }} flag-icon--squared country-block__flag-icon"></i>
+                      <i title="{{ country_name | striptags  }}" alt="{{ country_name | striptags }}" class="flag-icon flag-icon--{{ country_code }} flag-icon--squared country-block__flag-icon"></i>
                     </div>
-                    <h3 class="country-block__country-name" title="{{ country_name  }}">{{ country_name  }}</h3>
+                    <h3 class="country-block__country-name" title="{{ country_name | striptags  }}">{{ country_name  }}</h3>
                   </div>
                   <div class="country-block__data-container">
                     <div class="country-block__time">
@@ -66,13 +53,36 @@
                       Подробнее
                     </button>
                   </div>
+                  <div class="country-block__more"><span class="country-block__more-icon ei-icon ei-arrow_carrot-2down"></span></div>
                 </div>
               </div>
             {% endfor %}
           </div>
         </div>
+        <!-- If we need navigation buttons -->
+        <div class="countries__slider-button-prev swiper-button-prev swiper-button-green"></div>
+        <div class="countries__slider-button-next swiper-button-next swiper-button-green"></div>
       </div>
       {% endfor %}
+    </div>
+  </div>
+  {# Coutries tables #}
+  <div class="countries__tables">
+    <div class="container">
+      {% render "@preloader" %}
+      <div class="countries__tables-content">
+        {% for category in categories %}
+          {% for table in category.tables %}
+            {% set tableClassName = 'table--country-'+ table.country.code%}
+            {% set tableSettings = {
+              customClassList: tableClassName
+            } %}
+            {% render "@responsive-table--country",
+            table|objAssign(tableSettings),
+            true %}
+          {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 
