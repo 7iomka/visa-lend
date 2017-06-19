@@ -222,7 +222,7 @@ context:
     - country:
         name: 'США <span class="country-block__country-name-prefix">(биометрия)</span>'
         code: us
-        startPrice: 1500
+        startPrice: 2500
       rows:
         - items:
             type: до 3-х лет

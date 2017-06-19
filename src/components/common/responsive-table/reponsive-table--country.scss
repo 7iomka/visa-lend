@@ -16,14 +16,16 @@
 
   &--country {
     margin-bottom: 7em;
-    box-shadow: 4px 4px 0 rgba(45,70,104,.06), 0 0 0 1px rgba(45,70,104,.06);
     border-radius: 8px;
     overflow: hidden;
+    @include media(">=lg"){
+      box-shadow: 4px 4px 0 rgba(45,70,104,.06), 0 0 0 1px rgba(45,70,104,.06);
+    };
   }
 
   // .Table-header
   &-header {
-    display: none;
+
     @include media(">=lg") {
       font-weight: 700;
       background-color: $header-background!important;
@@ -31,25 +33,33 @@
     }
     #{$table}-row-item {
       white-space: pre-wrap;
+      @include media("<lg"){
+        display: none;
+      };
     }
   }
   // .Table-row
   &-row {
     $row: &;
-
+    display: flex;
     width: 100%;
     &:nth-of-type(even) { background-color: $dark-color; }
      &:nth-of-type(odd) { background-color: $light-color; }
     @include media(">=lg") {
-      display: flex;
-      flex-flow: row nowrap;
+      flex-wrap: nowrap;
       &:nth-of-type(even) { background-color: $light-color; }
       &:nth-of-type(odd) { background-color: $dark-color; }
     }
+    @include media("<lg"){
+      flex-wrap: wrap;
+    };
     // first body row
     &--body-first {
       #{$row}-item {
-        border-top-color: #215fa0;
+        @include media(">=lg"){
+          border-top-color: #215fa0;
+        };
+
       }
     }
 
@@ -61,7 +71,8 @@
     &-item {
       $item: &;
       display: flex;
-      flex-flow: row nowrap;
+      flex-wrap: nowrap;
+
       flex-direction: column;
       justify-content: center;
       flex-grow: 1;
@@ -69,21 +80,40 @@
       padding: 0.8rem 1.6rem;
       word-break: break-word;
       font-size: 1.6em;
+      border: 1px solid $border-color;
+      margin: -1px 0 0 -1px;
+      @include media("<lg"){
+        flex-grow: 1;
+        flex-basis: 50%;
+        justify-content: space-between;
+        margin:0;
+      };
+
       &:before {
         content: attr(data-header);
         width: 30%;
         font-weight: 700;
+        @include media(">=lg") {
+         content: none;
+        }
+        @include media("<lg"){
+          width: 100%;
+          line-height: 1.25;
+          margin-bottom: 0.5em;
+          font-size: 85%;
+          font-weight: 400;
+        };
+
       }
-      @include media(">=lg") {
-        border: 1px solid $border-color;
-        // border: 1px solid rgba(194, 194, 194, 0.19);
-        margin: -1px 0 0 -1px;
-        &:before { content: none; }
-      }
+
+
       // custom styles for each table row item content IN HEADER
       @at-root #{$table}-header #{$item}{
             &--type {
              background: #fbfeff;
+             @include media("<lg"){
+               display: flex;
+             };
             }
             &--price,
             &--action,
@@ -97,11 +127,17 @@
         border-right-color: #cdcccb;
         flex-grow: 1.6;
          background: inherit;
+         @include media("<lg"){
+           flex-basis: 100%;
+           max-width: 100%;
+         };
       }
 
 
       &--term {
-        border-left-color: transparent;
+        @include media(">=lg"){
+          border-left-color: transparent;
+        };
         font-size: 1.7em;
         #{$row}--urgent & {
           color: $base-color--green;
@@ -110,12 +146,25 @@
       &--documents {
         flex-grow: 1.5;
         font-size: 1.4em;
+        @include media("<lg"){
+           font-size: 1.6em;
+           flex-basis: 100%;
+           max-width: 100%;
+        };
       }
       &--action {
         flex-grow: 1.3;
         align-items: center;
+        @include media("<lg"){
+          text-align: center;
+          justify-content: center;
+          padding: 1em;
+          &:before {
+            margin-bottom: 1em;
+          }
+        };
         .c-button {
-          font-size: 0.75em;
+          font-size: 1em;
           @include media(">=lg", "<1100px"){
             font-size: 0.8em;
           };
@@ -146,6 +195,9 @@
 .price {
   color: $base-color--blue;
   font-size: 1.2em;
+  @include media("<lg"){
+    line-height: 1;
+  };
   &--urgent {
     color: $base-color--green;
   }
@@ -155,3 +207,87 @@
   color: #565656;
   font-size: 0.9em;
 }
+
+
+/**
+ * Speed custom styles
+ */
+ @include media("<lg"){
+   .table-row--body .table-row-item--type {
+      display: block;
+      text-align: center;
+    }
+
+    .table-row--toggler {
+      transition: 0.4s ease-out;
+      padding-right: 5.2rem;
+      &:after {
+          content: "\e740";
+          font-family: "elegant-icons";
+          font-style: normal;
+          font-variant: normal;
+          font-weight: normal;
+          line-height: 1;
+          speak: none;
+          text-transform: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 0.8rem 1.6rem;
+          font-size: 1.4em;
+          color: #00a01a;
+      }
+      .table-row--body-open &:after {
+        content: "\e73a";
+       }
+      .condition {
+        display: block;
+        margin-right: -3.5rem;
+        line-height: 1.1;
+      }
+    }
+    .table-row.table-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .table-header .table-row-item--type .country-block {
+        margin: auto;
+    }
+    .table-row.table-row--body {
+        // height: 42px;
+        overflow: hidden;
+    }
+    .table-row {
+        overflow: hidden;
+    }
+
+    .table-row.table-row--body-open .table-row-item.table-row-item--type{
+        background: #e4e6ea;
+    }
+    .table.table--country.table--country-bg {
+        max-width: 64em;
+        margin: auto;
+    }
+
+
+
+    .table-row.table-row--body {
+        position: relative;
+        background: white;
+    }
+
+    .table-row--body .table-row-item {
+        text-align: center;
+    }
+    .table-row.table-row--body-open .table-row-item {
+        background: #f8f9fb;
+        color: #0055b0;
+    }
+
+    .table-row.table-row--body-open .table-row-item:before {
+        color: #434343;
+    }
+
+
+ };

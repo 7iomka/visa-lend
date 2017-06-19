@@ -9,13 +9,22 @@ domready(function () {
     // Country slider
     // ----------------------------------------------------------------------------
     $('.countries .swiper-container').each(function(){
+      var slidesCount = $(this).find('.swiper-slide').length;
+      var slidesPerView = 4;
+      var slidesPerColumn = slidesCount > slidesPerView ? 2 : 1;
+      var $wrapper = $(this).find('.swiper-wrapper');
+      if (slidesCount < slidesPerView * slidesPerColumn) {
+        $wrapper.addClass('justify-content-md-center');
+      }
+      var centeredSlides;
+
       var coutrySlider = new Swiper($(this), {
             // pagination: $(this).find('.swiper-pagination'),
             // paginationClickable: $(this).find('.swiper-pagination'),
             nextButton: $(this).closest('.countries__slider').find('.swiper-button-next'),
             prevButton: $(this).closest('.countries__slider').find('.swiper-button-prev'),
-            slidesPerView: 4,
-            slidesPerColumn: 2,
+            slidesPerView: slidesPerView,
+            slidesPerColumn: slidesPerColumn,
             // need for hidden slider works
             observer: true,
             observeParents: true,
@@ -131,7 +140,7 @@ domready(function () {
       }
       function afterLoadData(){
         // получаем высоты контента контейнера с успешными данными о заявке
-        var successContainerHeight = $countries__tablesContent.actualHeight(true);
+        var successContainerHeight = $countries__tablesContent.actual( 'outerHeight', { includeMargin : true });
 
         // скрываем прелоадер
         $countries__preloader.fadeOut();
@@ -157,6 +166,83 @@ domready(function () {
       setTimeout(afterLoadData,sendTransitionTime+400);
 
     });
+
+
+
+
+    // ----------------------------------------------------------------------------
+    // Actions for each responsive-table
+    // ----------------------------------------------------------------------------
+    var $tableCountry = $('.table--country');
+    var $tableCountryConfig = {
+      collapse: true
+    };
+    if($tableCountry.length) {
+      $tableCountry.each(function(){
+        var $currentTableCountry = $(this);
+        var $toggler = $currentTableCountry.find('.table-row--body').find('.table-row--toggler');
+        $toggler.each(function () {
+          var $this = $(this);
+          var togglerHeight = $this.actual('outerHeight');
+          var $toggableArea = $this.closest('.table-row--body');
+          var $toggableAreaActiveClassName = 'table-row--body-open';
+          var toggableAreaHeight = $toggableArea.actual('outerHeight');
+
+          $toggableArea.css('max-height', togglerHeight);
+
+          $this.on('click', function () {
+            var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
+            $toggableArea.toggleClass($toggableAreaActiveClassName);
+
+
+            // анимируем контейнер до вычисленной высоты
+
+            $toggableArea.smoothAnimate({
+              'max-height': $toggableAreaIsActive ? togglerHeight : toggableAreaHeight
+            },{
+                duration: 400,
+                easing: 'ease',
+            });
+
+            if($tableCountryConfig.collapse){
+              var $anotherToggableAreaActive = $currentTableCountry.find(`.${$toggableAreaActiveClassName}`).not($toggableArea);
+              if($anotherToggableAreaActive.length){
+                var anotherTogglerHeight = $anotherToggableAreaActive.find('.table-row--toggler').actual('outerHeight');
+                console.log('anotherTogglerHeight', anotherTogglerHeight);
+                // var $anotherToggableAreaActiveHeight = $anotherToggableAreaActive.actual('outerHeight');
+
+                $anotherToggableAreaActive.smoothAnimate({
+                  'max-height': anotherTogglerHeight
+                },{
+                    duration: 400,
+                    easing: 'ease',
+                });
+                $anotherToggableAreaActive.removeClass($toggableAreaActiveClassName);
+
+              }
+
+            }
+          });
+
+          $(window).on('resize orientationchange', _.debounce(function () {
+            var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
+            if($toggableAreaIsActive) {
+              $toggableArea.css('max-height', '');
+              var toggableAreaHeight = $toggableArea.actual('outerHeight');
+              $toggableArea.css('max-height', toggableAreaHeight);
+            }
+            else {
+              $toggableArea.css('max-height', '');
+              var togglerHeight = $this.actual('outerHeight');
+              $toggableArea.css('max-height', togglerHeight);
+            }
+          }, 50));
+
+
+        });
+      });
+    }
+
 
   }
 });
