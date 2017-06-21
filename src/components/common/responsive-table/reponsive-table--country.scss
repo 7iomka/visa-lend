@@ -64,7 +64,7 @@
     }
 
     &#{&}--urgent {
-      background-color: rgba(0, 160, 26, 0.05);
+      background-color: #f2faf3;
     }
 
     // .Table-row-item
@@ -135,6 +135,9 @@
 
 
       &--term {
+        font-family: 'Raleway',sans-serif;
+        font-weight: 600;
+        font-variant-numeric: lining-nums;
         @include media(">=lg"){
           border-left-color: transparent;
         };
@@ -195,6 +198,9 @@
 .price {
   color: $base-color--blue;
   font-size: 1.2em;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
   @include media("<lg"){
     line-height: 1;
   };

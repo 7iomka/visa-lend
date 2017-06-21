@@ -1,6 +1,8 @@
 <section class="section countries">
   {# Coutries categories #}
 <div class="container">
+  <h2 class="section__title countries__title">{{ title }}</h2>
+  <h3 class="section__subtitle countries__subtitle">{{ subtitle }}</h3>
   <div class="countries__categories">
     {% for category in categories %}
       <div class="countries__category countries__category--{{ category.slug }} {% if loop.first %}active{% endif %}" data-category="{{ category.slug }}">
@@ -31,6 +33,8 @@
               {% set country_name = table.country.name %}
               {% set country_code = table.country.code %}
               {% set startPrice = table.country.startPrice %}
+              {% set startTerm = table.country.startTerm %}
+              {% set startTermWeeks = table.country.startTermWeeks %}
               <div class="swiper-slide countries__slide" data-country="{{ country_name | striptags }}" data-category="{{ category.slug }}">
                 {# Country-block component #}
                 <div class="country-block" data-country="{{ country_name | striptags }}" data-country-code="{{ country_code }}" data-category="{{ category.slug }}">
@@ -44,7 +48,12 @@
                     <div class="country-block__time">
                       <span class="country-block__time-before"><span class="country-block__time-before-icon ei-icon ei-clock_alt"></span></span>
                       <span class="country-block__time-value">
-                        <nobr> от 3 дней</nobr>
+                        {% if startTermWeeks %}
+                            <nobr>от {{ startTerm }}x&nbsp;недель</nobr>
+                        {% else %}
+                            <nobr>от {{ startTerm }}&nbsp;дней</nobr>
+                        {% endif %}
+
                       </span>
                     </div>
                     <div class="country-block__price">
@@ -81,7 +90,8 @@
           {% for table in category.tables %}
             {% set tableClassName = 'table--country-'+ table.country.code%}
             {% set tableSettings = {
-              customClassList: tableClassName
+              customClassList: tableClassName,
+              buttonType: category.buttonType
             } %}
             {% render "@responsive-table--country",
             table|objAssign(tableSettings),
@@ -91,5 +101,9 @@
       </div>
     </div>
   </div>
-
+ <div class="container">
+   <div class="readmore text-center">Ознакомиться с полным перечнем наших услуг и списком стран вы можете на нашем сайте
+     <a href="http://visatourservice.ru" title="Перейти на сайт">visatourservice.ru<span class="readmore__icon ei-arrow_carrot-right_alt2"></span></a>
+   </div>
+ </div>
 </section>

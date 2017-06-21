@@ -24,6 +24,18 @@ variants:
   context:
     label: Button with background primary
     mods: [primary]
+- name: primary-aqua
+  context:
+    label: Button with background primary-aqua
+    mods: [primary-aqua]
+- name: primary-green
+  context:
+    label: Button with background primary-green
+    mods: [primary-green]
+- name: primary-violet
+  context:
+    label: Button with background primary-violet
+    mods: [primary-violet]
 - name: primary-green
   context:
     label: Button with background green and primary styles

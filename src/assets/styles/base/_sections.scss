@@ -77,6 +77,8 @@ h6 {
   text-rendering: optimizeLegibility;
   font-size: inherit;
   font-weight: inherit;
+  font-family: 'Raleway',sans-serif;
+  // font-variant-numeric: lining-nums;
 
   @media print {
     page-break-after: avoid;
@@ -103,11 +105,14 @@ hr {
 }
 
 .section__title {
+    font-family: 'Raleway',sans-serif;
+    font-variant-numeric: lining-nums;
     position: relative;
     text-transform: uppercase;
     color: #141414;
-    font-size: 3em;
-    display: inline-block;
+    font-size: 4em;
+    display: block;
+    text-align: center;
     line-height: 1.24;
     margin-bottom: 2rem;
     &--underlined {
@@ -133,4 +138,14 @@ hr {
           }
       }
     }
+}
+
+.section__subtitle {
+    font-family: 'Raleway',sans-serif;
+    // font-variant-numeric: lining-nums;
+    font-size: 3em;
+    text-align: center;
+    line-height: 1.24;
+    color: #6b6b6b;
+    margin-top: -2rem;
 }

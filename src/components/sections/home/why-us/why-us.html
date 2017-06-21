@@ -1,0 +1,19 @@
+<section class="section why-us">
+  <div class="container">
+    <h2 class="section__title why-us__title">{{ title }}</h2>
+    <h3 class="section__subtitle why-us__subtitle">{{ subtitle }}</h3>
+    <div class="why-us__qualities">
+      {% for item in qualities %}
+        <div class="why-us__quality {% if item.reverse %}why-us__quality--reverse{% endif %}">
+          <div class="why-us__quality-icon">
+            {% include item.icon + '.svg' %}
+          </div>
+          <div class="why-us__quality-details">
+            <h4 class="why-us__quality-title">{{ item.title }}</h4>
+            <div class="why-us__quality-desc">{{ item.desc }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

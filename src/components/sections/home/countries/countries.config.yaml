@@ -1,12 +1,16 @@
 context:
+  title: Основные направления
+  subtitle: Визы в 70 стран
   categories:
   - name: Европа
     slug: europe
+    buttonType: aqua
     tables:
     - country:
         name: Болгария
         code: bg
         startPrice: 4000
+        startTerm: 5
       rows:
         - items:
             type: 90 дней
@@ -47,6 +51,7 @@ context:
         name: Испания
         code: es
         startPrice: 7000
+        startTerm: 4
       rows:
         - items:
             type: до 2-х лет
@@ -62,6 +67,7 @@ context:
         name: Италия
         code: it
         startPrice: 7500
+        startTerm: 5
       rows:
         - items:
             type: до года
@@ -72,6 +78,7 @@ context:
         name: Нидерланды
         code: nl
         startPrice: 6000
+        startTerm: 5
       rows:
         - items:
             type: до года <span class='condition'>(при наличии двух шенгенов)</span>
@@ -82,6 +89,7 @@ context:
         name: Греция
         code: gr
         startPrice: 6500
+        startTerm: 5
       rows:
         - items:
             type: до 3-х лет
@@ -92,6 +100,7 @@ context:
         name: Франция
         code: fr
         startPrice: 6000
+        startTerm: 5
       rows:
         - items:
             type: до 5 лет
@@ -107,6 +116,7 @@ context:
         name: Чехия
         code: cz
         startPrice: 6500
+        startTerm: 5
       rows:
         - items:
             type: до года
@@ -117,6 +127,7 @@ context:
         name: Швейцария
         code: ch
         startPrice: 7000
+        startTerm: 5
       rows:
         - items:
             type: до года
@@ -127,6 +138,7 @@ context:
         name: Латвия
         code: lv
         startPrice: 7500
+        startTerm: 5
       rows:
         - items:
             type: до года
@@ -137,6 +149,7 @@ context:
         name: Финляндия
         code: fi
         startPrice: 7000
+        startTerm: 7
       rows:
         - items:
             type: до года
@@ -147,6 +160,7 @@ context:
         name: Великобритания
         code: gb
         startPrice: 2600
+        startTerm: 7
       rows:
         - items:
             type: 180/180
@@ -165,11 +179,13 @@ context:
             documents: "загранпаспорт, фото, справка с работы, финансовая гарантия"
   - name: Азия
     slug: asia
+    buttonType: violet
     tables:
     - country:
         name: Таиланд
         code: th
         startPrice: 1500
+        startTerm: 6
       rows:
         - items:
             type: 60/90
@@ -185,6 +201,7 @@ context:
         name: Япония
         code: jp
         startPrice: 3000
+        startTerm: 7
       rows:
         - items:
             type: до 3-х лет
@@ -200,6 +217,7 @@ context:
         name: Индия
         code: in
         startPrice: 4300
+        startTerm: 7
       rows:
         - items:
             type: 90 дней однокр.
@@ -223,6 +241,7 @@ context:
         name: 'США <span class="country-block__country-name-prefix">(биометрия)</span>'
         code: us
         startPrice: 2500
+        startTerm: 6
       rows:
         - items:
             type: до 3-х лет
@@ -238,6 +257,8 @@ context:
         name: 'Канада <span class="country-block__country-name-prefix">(биометрия)</span>'
         code: ca
         startPrice: 3200
+        startTerm: 2
+        startTermWeeks: true
       rows:
         - items:
             type: до 10 лет
@@ -251,11 +272,14 @@ context:
             documents: "---"
   - name: Австралия, Новая Зеландия
     slug: australia_and_new_zealand
+    buttonType: green
     tables:
     - country:
         name: Австралия
         code: au
         startPrice: 3200
+        startTerm: 2
+        startTermWeeks: true
       rows:
         - items:
             type: 90 дней - год
@@ -266,6 +290,8 @@ context:
         name: Новая Зеландия
         code: nz
         startPrice: 3200
+        startTerm: 2
+        startTermWeeks: true
       rows:
         - items:
             type: до 90 дней

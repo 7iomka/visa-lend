@@ -249,15 +249,17 @@ domready(function () {
           var primaryContentHeight = $countries__tablesContent.outerHeight();
           $countries__tables.css('height', primaryContentHeight);
         }
-          scrollToData($countries__tables);
+
         // скрываем контейнер с контентом и включаем прелоадер
         $countries__tablesContent.fadeOut(sendTransitionTime, function(){
+          scrollToData($countries__tables);
           // включаем прелоадер
           $countries__preloader.fadeIn(sendTransitionTime/2, function(){
             // тут выполняем действия в результате полученного аякс-ответа
             $countries__table.removeClass('active');
             // включаем нужную нам таблицу
             $coutryTableCurrent.addClass('active');
+
             // принимаем коллбек параметром чтобы после готовности (активности новой таблицы мы смогли забиндить евенты на неё)
             if (typeof(cb) !== 'undefined' && typeof(cb) === 'function') {
               cb($coutryTableCurrent);

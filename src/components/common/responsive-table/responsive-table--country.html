@@ -35,14 +35,20 @@
         <div class="table-row-item table-row-item--documents" data-header="{{ thead.documents | indent(0) }}">{{ row.items.documents }}</div>
 
         <div class="table-row-item table-row-item--action" data-header="{{ thead.action }}">
-          {% render "@button--primary", {
+          {%- set buttonType = buttonType -%}
+          {%- if buttonType -%}
+            {%- set buttonComponent = "@button--primary-" + buttonType -%}
+          {%- else -%}
+            {%- set buttonComponent = "@button--primary" -%}
+          {%- endif -%}
+          {%- render buttonComponent, {
            label: 'Оставить заявку',
            customClassList: 'modal-link',
            attrs: {
              'data-modal-target':'#action-order',
              'data-subject': row.items.type
            }
-         }, true %}
+         }, true -%}
         </div>
     </div>
   {% endfor %}
