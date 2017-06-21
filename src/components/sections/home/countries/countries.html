@@ -1,10 +1,14 @@
 <section class="section countries">
   {# Coutries categories #}
+<div class="container">
   <div class="countries__categories">
     {% for category in categories %}
       <div class="countries__category countries__category--{{ category.slug }} {% if loop.first %}active{% endif %}" data-category="{{ category.slug }}">
         <div class="countries__category-inner text-center">
-          <h2 class="section__title section__title--underlined countries__category-title countries__category-title--{{ category.slug }}">{{ category.name }}</h2>
+          <div class="countries__category-icon">
+            {% include category.slug + '.svg' %}
+          </div>
+          <h2 class="section__title section__title--underlined countries__category-title countries__category-title--{{ category.slug }}"><span class="countries__category-title-label">{{ category.name }}</span></h2>
         </div>
       </div>
     {% endfor %}
@@ -13,7 +17,9 @@
       <div class="countries__empty-block-inner">
       </div>
     </div>
+
   </div>
+</div>
   {# Countries sliders with countries #}
   <div class="countries__sliders">
     <div class="container">

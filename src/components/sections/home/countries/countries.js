@@ -8,49 +8,188 @@ domready(function () {
     // ----------------------------------------------------------------------------
     // Country slider
     // ----------------------------------------------------------------------------
-    $('.countries .swiper-container').each(function(){
-      var slidesCount = $(this).find('.swiper-slide').length;
-      var slidesPerView = 4;
-      var slidesPerColumn = slidesCount > slidesPerView ? 2 : 1;
-      var $wrapper = $(this).find('.swiper-wrapper');
-      if (slidesCount < slidesPerView * slidesPerColumn) {
-        $wrapper.addClass('justify-content-md-center');
-      }
-      var centeredSlides;
+    if ($('.countries .swiper-container').length) {
+      $('.countries .swiper-container').each(function(){
+        var slidesCount = $(this).find('.swiper-slide').length;
+        var slidesPerView = 4;
+        var slidesPerColumn = slidesCount > slidesPerView ? 2 : 1;
+        var $wrapper = $(this).find('.swiper-wrapper');
+        if (slidesCount < slidesPerView * slidesPerColumn) {
+          $wrapper.addClass('justify-content-md-center');
+        }
+        var centeredSlides;
 
-      var coutrySlider = new Swiper($(this), {
-            // pagination: $(this).find('.swiper-pagination'),
-            // paginationClickable: $(this).find('.swiper-pagination'),
-            nextButton: $(this).closest('.countries__slider').find('.swiper-button-next'),
-            prevButton: $(this).closest('.countries__slider').find('.swiper-button-prev'),
-            slidesPerView: slidesPerView,
-            slidesPerColumn: slidesPerColumn,
-            // need for hidden slider works
-            observer: true,
-            observeParents: true,
-            // slidesPerColumnFill: 'row',
-            spaceBetween: 10,
-            simulateTouch: false,
-            // Small screens, center to align and loop elements (max width (!inclusive))
-            breakpoints: {
-              1920: {
-                slidesPerView: 4
-              },
-              1280: {
-                 slidesPerView: 3
-              },
-              767: {
-                slidesPerView: 2
-              },
-              575: {
-                 slidesPerView: 1
-              },
-              // 480: {
-              //    slidesPerView: 1
-              // }
+        var coutrySlider = new Swiper($(this), {
+          // pagination: $(this).find('.swiper-pagination'),
+          // paginationClickable: $(this).find('.swiper-pagination'),
+          nextButton: $(this).closest('.countries__slider').find('.swiper-button-next'),
+          prevButton: $(this).closest('.countries__slider').find('.swiper-button-prev'),
+          slidesPerView: slidesPerView,
+          slidesPerColumn: slidesPerColumn,
+          // need for hidden slider works
+          observer: true,
+          observeParents: true,
+          // slidesPerColumnFill: 'row',
+          spaceBetween: 10,
+          simulateTouch: false,
+          // Small screens, center to align and loop elements (max width (!inclusive))
+          breakpoints: {
+            1920: {
+              slidesPerView: 4
             },
+            1280: {
+              slidesPerView: 3
+            },
+            767: {
+              slidesPerView: 2
+            },
+            575: {
+              slidesPerView: 1
+            },
+            // 480: {
+            //    slidesPerView: 1
+            // }
+          },
         });
-    });
+      });
+    }
+
+    // ----------------------------------------------------------------------------
+    // Actions for each responsive-table
+    // ----------------------------------------------------------------------------
+    var $tableCountry = $('.table--country');
+    var $tableCountryConfig = {
+      collapse: true
+    };
+    var isBinded = false;
+
+    /**
+     * setMaxHeight - учавствует в калькуляции высоты контента (при раскрытиии, ресайзе)
+     * @param {jQuery} $el   - $toggler
+     * @param {Boolean} reset [description]
+     */
+    function setMaxHeight($el, reset){
+      var $toggler = $el;
+
+      var $toggableArea = $toggler.closest('.table-row--body');
+      var $toggableAreaActiveClassName = 'table-row--body-open';
+
+      var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
+      // если не включены зброс
+      if (!reset) {
+          // при ресайзе мониторим высоту контента раскрытых аккордеонов
+          if($toggableAreaIsActive) {
+            $toggableArea.css('max-height', '');
+            var toggableAreaHeight = $toggableArea.actual('outerHeight');
+            $toggableArea.css('max-height', toggableAreaHeight);
+          }
+          else {
+            // в ином случае мониторим высоту тогглера
+            $toggableArea.css('max-height', '');
+            var togglerHeight = $toggler.actual('outerHeight');
+            $toggableArea.css('max-height', togglerHeight);
+          }
+      } else {
+        // при включенном сбросе обнуляем макс. высоту
+        $toggableArea.css('max-height', '');
+      }
+
+    }
+
+    /**
+     * actionsForActiveTable - В этой функции биндятся или выключаются функции в зависимости от условий
+     * @param  {jQuery} $activeTable [description]
+     */
+    function actionsForActiveTable($activeTable){
+      var $toggler = $activeTable.find('.table-row--toggler');
+      var query = Modernizr.mq('(min-width: 992px)');
+      console.log('isQuery', query);
+      if (query) {
+          if (isBinded) {
+            console.log('снимается онклик');
+            $activeTable.off('click','.table-row--toggler', clickHandler);
+            console.log('действия c стаблицей > 992px');
+            $toggler.each(function () {
+              setMaxHeight($(this),true);
+            });
+            isBinded = false;
+          }
+
+      } else {
+        if (!isBinded) {
+          console.log('навешивает онклик');
+          $activeTable.on('click','.table-row--toggler', clickHandler);
+          isBinded = true;
+        }
+        $toggler.each(function () {
+          setMaxHeight($(this));
+        });
+      }
+    }
+    /**
+     * clickHandler - Функция обработчик клика по тогллеру
+     */
+    function clickHandler(e){
+      var $this = $(e.target).closest('.table-row--toggler');
+      if (!$this) {
+        return;
+      }
+
+      var $toggableArea = $this.closest('.table-row--body');
+
+      var tempTogglerMaxHeight = $this.css('max-height');
+      var temp$toggableAreaMaxHeight = $toggableArea.css('max-height');
+      // !!! Сперва чтобы получить актуальную высоту уберём инлайновую макс. высоту
+      $this.css('max-height', '');
+      $toggableArea.css('max-height', '');
+
+      // сделаем и сохраним рассчёты
+      var togglerHeight = $this.actual('outerHeight');
+      var toggableAreaHeight = $toggableArea.actual('outerHeight');
+      var $toggableAreaActiveClassName = 'table-row--body-open';
+
+      // возвратим прежнюю макс-высоту
+      $this.css('max-height', tempTogglerMaxHeight);
+      $toggableArea.css('max-height', temp$toggableAreaMaxHeight);
+
+
+      // сохраняем значение активности кликабельной области для расчёта новой высоты
+      var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
+      // меняем класс на противоположный
+      $toggableArea.toggleClass($toggableAreaActiveClassName);
+      // анимируем контейнер до вычисленной ранее высоты (макс)
+      $toggableArea.smoothAnimate({
+        'max-height': $toggableAreaIsActive ? togglerHeight : toggableAreaHeight
+      },{
+          duration: 400,
+          easing: 'ease',
+      });
+
+      if($tableCountryConfig.collapse){
+        var $anotherToggableAreaActive = $tableCountry.find(`.${$toggableAreaActiveClassName}`).not($toggableArea);
+        if($anotherToggableAreaActive.length){
+          var $anotherToggler = $anotherToggableAreaActive.find('.table-row--toggler');
+          // var tempAnotherTogglerMaxHeight = $anotherToggler.css('max-height');
+          //  $anotherToggler.css('max-height', '');
+          var anotherTogglerHeight = $anotherToggler.actual('outerHeight');
+          //  $anotherToggler.css('max-height', tempAnotherTogglerMaxHeight);
+          // var $anotherToggableAreaActiveHeight = $anotherToggableAreaActive.actual('outerHeight');
+
+          $anotherToggableAreaActive.smoothAnimate({
+            'max-height': anotherTogglerHeight
+          },{
+              duration: 400,
+              easing: 'ease',
+          });
+          $anotherToggableAreaActive.removeClass($toggableAreaActiveClassName);
+        }
+      }
+
+
+
+    }
+
+
 
     // ----------------------------------------------------------------------------
     // Actions for each countries category
@@ -84,6 +223,8 @@ domready(function () {
         // currentSliderInstance.reinit();
         // show current slider
         $currentSlider.removeClass('hidden').addClass('active');
+        // hide last opened table
+        $('.table--country.active').removeClass('active');
       });
     });
 
@@ -101,8 +242,7 @@ domready(function () {
       var $coutryTableActive = $countries__tables.find('.table--country.active');
 
 
-      function beforeLoadData(){
-
+      function beforeLoadData(cb){
         if ($coutryTableActive) {
           // Получаем высоту первоначального контента и фиксируем её у родителя
           // для последующей анимации до высоты результирующего контейнера
@@ -118,24 +258,25 @@ domready(function () {
             $countries__table.removeClass('active');
             // включаем нужную нам таблицу
             $coutryTableCurrent.addClass('active');
+            // принимаем коллбек параметром чтобы после готовности (активности новой таблицы мы смогли забиндить евенты на неё)
+            if (typeof(cb) !== 'undefined' && typeof(cb) === 'function') {
+              cb($coutryTableCurrent);
+            }
           });
 
         });
 
       }
       function scrollToData($el){
-
-        // var query = ( Modernizr.touchevents && Modernizr.mq('(max-height: 767px)') ) || Modernizr.mq('(max-height: 767px)');
-        var query = Modernizr.touchevents;
-
-         TweenMax.to(window, 1, {
-           scrollTo: {
-             y: $el.offset().top,
-             offsetY: 30
-           },
-           ease: Power1.easeOut,
-           delay: 0.5,
-         });
+       // скролл к таблице с данными
+       TweenMax.to(window, 1, {
+         scrollTo: {
+           y: $el.offset().top,
+           offsetY: 30
+         },
+         ease: Power1.easeOut,
+         delay: 0.5,
+       });
 
       }
       function afterLoadData(){
@@ -162,87 +303,25 @@ domready(function () {
         });
       }
 
-      beforeLoadData();
+      // Стартует анимация, после активности нужной таблицы запускаются все евенты связанные с ней
+      beforeLoadData(actionsForActiveTable.bind(this,$coutryTableCurrent));
+      // анимация окончания
       setTimeout(afterLoadData,sendTransitionTime+400);
 
     });
 
-
-
-
-    // ----------------------------------------------------------------------------
-    // Actions for each responsive-table
-    // ----------------------------------------------------------------------------
-    var $tableCountry = $('.table--country');
-    var $tableCountryConfig = {
-      collapse: true
-    };
-    if($tableCountry.length) {
-      $tableCountry.each(function(){
-        var $currentTableCountry = $(this);
-        var $toggler = $currentTableCountry.find('.table-row--body').find('.table-row--toggler');
-        $toggler.each(function () {
-          var $this = $(this);
-          var togglerHeight = $this.actual('outerHeight');
-          var $toggableArea = $this.closest('.table-row--body');
-          var $toggableAreaActiveClassName = 'table-row--body-open';
-          var toggableAreaHeight = $toggableArea.actual('outerHeight');
-
-          $toggableArea.css('max-height', togglerHeight);
-
-          $this.on('click', function () {
-            var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
-            $toggableArea.toggleClass($toggableAreaActiveClassName);
-
-
-            // анимируем контейнер до вычисленной высоты
-
-            $toggableArea.smoothAnimate({
-              'max-height': $toggableAreaIsActive ? togglerHeight : toggableAreaHeight
-            },{
-                duration: 400,
-                easing: 'ease',
-            });
-
-            if($tableCountryConfig.collapse){
-              var $anotherToggableAreaActive = $currentTableCountry.find(`.${$toggableAreaActiveClassName}`).not($toggableArea);
-              if($anotherToggableAreaActive.length){
-                var anotherTogglerHeight = $anotherToggableAreaActive.find('.table-row--toggler').actual('outerHeight');
-                console.log('anotherTogglerHeight', anotherTogglerHeight);
-                // var $anotherToggableAreaActiveHeight = $anotherToggableAreaActive.actual('outerHeight');
-
-                $anotherToggableAreaActive.smoothAnimate({
-                  'max-height': anotherTogglerHeight
-                },{
-                    duration: 400,
-                    easing: 'ease',
-                });
-                $anotherToggableAreaActive.removeClass($toggableAreaActiveClassName);
-
-              }
-
-            }
-          });
-
-          $(window).on('resize orientationchange', _.debounce(function () {
-            var $toggableAreaIsActive = $toggableArea.hasClass($toggableAreaActiveClassName);
-            if($toggableAreaIsActive) {
-              $toggableArea.css('max-height', '');
-              var toggableAreaHeight = $toggableArea.actual('outerHeight');
-              $toggableArea.css('max-height', toggableAreaHeight);
-            }
-            else {
-              $toggableArea.css('max-height', '');
-              var togglerHeight = $this.actual('outerHeight');
-              $toggableArea.css('max-height', togglerHeight);
-            }
-          }, 50));
-
-
-        });
-      });
+    /**
+     * runActionsForActiveTable - запускает все события только для активной таблицы
+     */
+    function runActionsForActiveTable(){
+      var $activeTable = $('.table--country.active');
+      if ($activeTable) {
+        actionsForActiveTable($activeTable);
+      }
     }
-
+    // resize events
+    $(window).on('resize', _.debounce(runActionsForActiveTable, 250));
+    $(window).on('orientationchange',runActionsForActiveTable);
 
   }
 });
