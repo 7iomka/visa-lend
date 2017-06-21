@@ -304,6 +304,8 @@ domready(function () {
       }
 
       // Стартует анимация, после активности нужной таблицы запускаются все евенты связанные с ней
+      // выключаем isBinded так как переключаем на новую таблицу
+      isBinded = false;
       beforeLoadData(actionsForActiveTable.bind(this,$coutryTableCurrent));
       // анимация окончания
       setTimeout(afterLoadData,sendTransitionTime+400);
