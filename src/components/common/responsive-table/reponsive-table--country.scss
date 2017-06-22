@@ -135,9 +135,7 @@
 
 
       &--term {
-        font-family: 'Raleway',sans-serif;
-        font-weight: 600;
-        font-variant-numeric: lining-nums;
+
         @include media(">=lg"){
           border-left-color: transparent;
         };
@@ -145,6 +143,11 @@
         #{$row}--urgent & {
           color: $base-color--green;
         }
+      }
+      @at-root #{$row}--body #{$item}--term {
+        font-family: 'Raleway',sans-serif;
+        font-weight: 600;
+        font-variant-numeric: lining-nums;
       }
       &--documents {
         flex-grow: 1.5;
