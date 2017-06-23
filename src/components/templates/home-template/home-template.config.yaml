@@ -2,6 +2,7 @@ status: ready
 context:
   sections:
     - section: countries
+    - section: services
     - section: why-us
   # # - section: our-works
   # # - section: offer

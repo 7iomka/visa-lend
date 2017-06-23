@@ -1,0 +1,15 @@
+context:
+  title: Срочное оформление загранпаспорта
+  subtitle: Дополнительные услуги
+  services:
+    - title: Биометрический паспорт
+      image: passport__biometric.png
+      type: на 10 лет
+      term: ~10 р.д.
+      price: 15 000
+
+    - title: Паспорт старого образца
+      image: passport__old.png
+      type: на 5 лет
+      term: ~5 р.д.
+      price: 23 000

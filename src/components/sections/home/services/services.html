@@ -1,0 +1,33 @@
+<section class="section services">
+  <div class="container">
+    <h2 class="section__title services__title">{{ title }}</h2>
+    <h3 class="section__subtitle services__subtitle">{{ subtitle }}</h3>
+    <div class="services__items">
+      {% for item in services %}
+        <div class="services__item">
+          <div class="services__item-image">
+            {% set src = '/assets/images/sections/services/' + item.image | path %}
+            {% render "@img-responsive", {
+              src: src,
+              customClassList: 'services__item-image-figure'
+            } %}
+          </div>
+          <div class="services__item-content">
+            <h4 class="services__item-title">{{ item.title }}</h4>
+            <div class="services__item-parametr services__item-type"><i class="ei ei-calendar"></i></i>Срок действия: <span class="services__item-parametr-value">{{ item.type }}</span></div>
+            <div class="services__item-parametr services__item-term"><i class="ei ei-clock_alt"></i>Срок оформления: <span class="services__item-parametr-value">{{ item.term }}</span></div>
+            <div class="services__item-parametr services__item-price"><i class="ei ei-wallet"></i>Стоимость: <span class="services__item-parametr-value">{{ item.price }} ₽</span></div>
+            {%- render "@button--primary", {
+             label: 'Оставить заявку',
+             customClassList: 'services__item-button modal-link',
+             attrs: {
+               'data-modal-target':'#action-order',
+               'data-subject': 'Заявка на оформление: ' + item.title
+             }
+           }, true -%}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
