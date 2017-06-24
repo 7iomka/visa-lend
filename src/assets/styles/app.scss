@@ -66,7 +66,13 @@
 @import '../../components/common/**/*.scss';
 @import '../../components/global/**/*.scss';
 @import '../../components/partials/**/*.scss';
-@import '../../components/sections/**/*.scss';
+
+// Sections list in need order
+@import '../../components/sections/home/countries/countries';
+@import '../../components/sections/home/services/services';
+@import '../../components/sections/home/about/about';
+@import '../../components/sections/home/why-us/why-us';
+
 @import '../../components/templates/**/*.scss';
 
 // Themes

@@ -127,3 +127,78 @@
 @function font($path, $base: $baseAssetsPath) {
   @return asset($base, 'fonts/', $path);
 }
+
+
+// CSS шлюз
+@mixin interval($start, $end,  $min: 320, $max: 992, $prop: font-size, $mobile-first: false, $unit: em) {
+    $k: 10;
+    $m: ($start - $end) / (($max - $min)/$k); // число
+    $b: $end - ($m * $min/$k);
+    $y: $m + $b;
+    @include media(">=#{$min}px") {
+      #{$prop}: calc( #{$m} * 100vw + #{$b}#{$unit} );
+    };
+
+    @include media("<#{$min}px") {
+        #{$prop}: #{$end}#{$unit};
+    };
+
+    @include media(">=#{$max}px") {
+      #{$prop}: #{$start}#{$unit};
+    };
+}
+
+
+
+// @mixin css-lock(
+//     $lock-width-min: 320,
+//     $lock-width-max: 960,
+//     $font-size-min: '',
+//     $font-size-max: '',
+//     $line-height-min: '',
+//     $line-height-max: '',
+//     $root: false,
+//     $lock: true,
+//     $prop:'',
+//     $prop-min:'',
+//     $prop-max:''
+// ) {
+//     // GENERAL CHECKS
+//     @if unit($lock-width-min) != unit($lock-width-max) or unit($lock-width-min) !='px' {
+//         @warn 'Please make sure the screen width values both have px units.';
+//     }
+//
+//
+//
+//     // CUSTOM PROP
+//     @if $prop != '' and $prop-min != '' and $prop-min != ''{
+//         @if unit($prop-min) !=unit($prop-max){
+//             @warn 'Please enter line-height values of the same unit';
+//         }@else{
+//             // CUSTOM PROP CALC
+//             $m_c: (($prop-max - $prop-min) / ($lock-width-max - $lock-width-min));
+//             $mx_c: $m_c * 100vw;
+//             $b_c: $prop-min - ($m_c * $lock-width-min);
+//
+//             // CUSTOM PROP SET VALUES
+//             $prop-value-min: $prop-min;
+//             $prop-value-responsive: 'calc( #{$mx_c} + #{$b_c} )';
+//             $prop-value-max: $prop-max;
+//
+//             // CUSTOM PROP OUTPUT
+//             @if $lock==true {
+//                 #{$prop}: #{$prop-value-min};
+//                 @media (min-width: #{$lock-width-min}) {
+//                     #{$prop}: #{$prop-value-responsive};
+//                 }
+//                 @media (min-width: #{$lock-width-max}) {
+//                     #{$prop}: #{$prop-value-max};
+//                 }
+//             }
+//             @else {
+//                 #{$prop}: #{$prop-value-responsive};
+//             }
+//         }
+//     }
+//
+// }

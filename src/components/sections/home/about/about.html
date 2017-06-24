@@ -1,0 +1,34 @@
+<section class="section about">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section__title section__title--with-icon about__title">{{ title }}</h2>
+    </div>
+    <h3 class="section__subtitle about__subtitle">{{ subtitle }}</h3>
+    <div class="about__outer-block">
+      <div class="about__inner-block">
+        <div class="about__intro">{{ intro }}</div>
+        <div class="about__container">
+          <div class="about__items">
+            {% for item in items %}
+              <div class="about__item">
+                <div class="about__item-icon">
+                  {% include item.icon + '.svg' %}
+                </div>
+                <div class="about__item-details">
+                  <h4 class="about__item-title">{{ item.title }}</h4>
+                  <div class="about__item-desc">{{ item.desc }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="about__scene">
+            <img class="about__image" src="http://visatourservice.ru/bitrix/templates/newvisa/img/pages/about-detail1.jpg">
+          </div>
+        </div>
+        <div class="about__readmore readmore mt-6 text-center">Ознакомиться с полным перечнем наших услуг и списком стран вы можете на нашем сайте
+         <a href="http://visatourservice.ru" title="Перейти на сайт">visatourservice.ru<span class="readmore__icon ei-arrow_carrot-right_alt2"></span></a>
+       </div>
+      </div>
+    </div>
+  </div>
+</section>

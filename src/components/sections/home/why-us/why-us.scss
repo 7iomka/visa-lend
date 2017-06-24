@@ -1,8 +1,10 @@
 .why-us {
-  padding: 10em 0;
-  overflow: hidden;
+  @include media(">=xl"){
+    padding: 10em 0;
+  };
   &__title {
     @extend .ei-question;
+
     &:before {
       position: absolute;
       opacity: 0.2;
@@ -13,7 +15,7 @@
       right: 0;
       margin: auto;
       transform: translate(1.1em, -0.5em);
-      text-shadow: 0 0.5rem 1rem #bbb9b6, 1rem 1.5rem 2rem transparentize(#bbb9b6, 0.2), 2rem 2.5rem 2rem transparentize(#bbb9b6, 0.4);
+      // text-shadow: 0 0.5rem 1rem #bbb9b6, 1rem 1.5rem 2rem transparentize(#bbb9b6, 0.2), 2rem 2.5rem 2rem transparentize(#bbb9b6, 0.4);
     }
   }
   &__qualities {
@@ -68,6 +70,7 @@
       font-size: 3em;
       line-height: 1.24;
       margin-bottom: 0.75rem;
+      color: $base-color--purple;
   }
 
   &__quality-desc {

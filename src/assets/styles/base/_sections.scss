@@ -33,6 +33,7 @@ html {
 }
 
 body {
+  min-width: 320px;
   font-family: $base-font;
   margin: 0;
   height: 100%;
@@ -103,7 +104,10 @@ hr {
   max-width: 1920px;
   margin: auto;
 }
-
+.section {
+  padding: 4em 0;
+  overflow: hidden;
+}
 .section__title {
     font-family: 'Raleway',sans-serif;
     font-variant-numeric: lining-nums;
@@ -111,10 +115,23 @@ hr {
     text-transform: uppercase;
     color: #141414;
     font-size: 4em;
-    display: block;
+    display: inline-block;
     text-align: center;
     line-height: 1.24;
     margin-bottom: 2rem;
+    &.section__title--with-icon:before {
+      text-shadow: 0 0.8rem 1.5rem #7c6b84, 1.5rem 2rem 3rem rgb(141, 121, 151);
+        @include media("<xl") {
+          position: relative;
+          display: block;
+          left: 0;
+          transform: none;
+          margin-bottom: 1.5rem;
+
+        };
+
+    }
+
     &--underlined {
 
       margin-bottom: 2rem;
@@ -146,6 +163,7 @@ hr {
     font-size: 3em;
     text-align: center;
     line-height: 1.24;
-    color: #6b6b6b;
+    // color: #6b6b6b;
+    color: $base-color--purple;
     margin-top: -2rem;
 }

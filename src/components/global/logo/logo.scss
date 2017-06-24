@@ -7,9 +7,13 @@
       &__link {
         display: flex;
         align-items: center;
+        @include media("<md"){
+          justify-content: center;
+        };
       }
       &__icon {
           width: 7.5rem;
+          min-width: 7.5rem;
           height: 7.5rem;
           display: inline-block;
           background: image('logo.png') 0 0 no-repeat;

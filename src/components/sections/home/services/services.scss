@@ -1,25 +1,56 @@
 .services {
-  padding: 10em 0;
-  overflow: hidden;
+  @include media(">=xl"){
+    padding: 10em 0;
+  };
+  &__title {
+    @extend .ei-id;
+    &:before {
+      position: absolute;
+      opacity: 0.2;
+      color: white;
+      font-size: 3em;
+      top: 0;
+      right: 0;
+      margin: auto;
+      transform: translate(1.2em, -0.5em);
+      // text-shadow: 0 0.5rem 1rem #a5a5a5, 1rem 1.5rem 2rem rgba(187, 185, 182, 0.8), 2rem 2.5rem 2rem rgba(187, 185, 182, 0.6);
+    }
+  }
   &__items {
     margin-top: 6em;
   }
   &__item {
     display: flex;
-    justify-content: center;
-    margin: 4em 0 8em;
+    align-items: center;
+    flex-direction: column;
+    @include media(">=640px"){
+      flex-direction: row;
+      justify-content: center;
+    };
+    margin: 8em 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
     &-title {
         font-size: 3em;
         line-height: 1.24;
         font-family: 'Raleway',sans-serif;
         font-weight: 500;
         margin-bottom: 1em;
+        color: $base-color--purple;
     }
     &-image {
         @include media(">=md"){
           max-width: 40%;
           flex-basis: 40%;
         };
+    }
+    &-image-figure {
+      max-width: 40em;
+      @include media(">=640px"){
+        margin-right: 4em;
+      };
+
     }
 
     &-content {
@@ -32,13 +63,13 @@
     &-parametr {
         font-size: 2em;
         padding: 0.25em 0 0.25em 1.5em;
-        border-left: 1px solid rgba(124, 137, 154, 0.3);
+        border-left: 1px solid transparentize($base-color--purple, 0.5);
         position: relative;
         &:before {
             content: "";
             width: 1em;
             height: 0.1rem;
-            background: rgba(124, 137, 154, 0.3);
+            background: transparentize($base-color--purple, 0.5);
             position: absolute;
             left: 0;
             top: 0;
@@ -49,7 +80,7 @@
           content: "";
           width: 0.6rem;
           height: 0.6rem;
-          background: #7c899a;
+          background: $base-color--purple;
           position: absolute;
           left: -0.3rem;
           top: -0.3rem;
@@ -74,14 +105,15 @@
 
     &-parametr i {
         margin-right: 0.4em;
-        color: $base-color--green;
+        color: $base-color--purple;
     }
-    &-image-figure {
-      max-width: 40em;
-      margin-right: 4em;
 
-    }
     &-button {
+      &-wrapper {
+        @include media("<640px"){
+          text-align: center;
+        };
+      }
       font-size: 1.8rem;
       margin-top: 2rem;
     }

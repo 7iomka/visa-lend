@@ -15,14 +15,28 @@ $z-index__dots: 2;
     }
     // contacts
     &__contacts {
+      @include media("<md"){
+        margin-top: 2.5em;
+      };
       &-phones {
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
+          @include media(">=md"){
+            justify-content: flex-end;
+          };
+          @include media("<=375px"){
+            flex-direction: column;
+            align-items: center;
+          };
       }
 
       &-phone {
           font-weight: 700;
-          margin-left: 2rem;
+          @include media(">375px"){
+            &:not(:first-child){
+              margin-left: 2rem;
+            }
+          };
           font-size: 2em;
           color: #0d5eaf;
           .icon {
@@ -32,9 +46,15 @@ $z-index__dots: 2;
       }
 
       &-office {
-        text-align: right;
+        text-align: center;
+        @include media(">=md"){
+          text-align: right;
+        };
         &-adress {
-            font-size: 1.6em;
+            font-size: 1.6rem;
+            @include media("<sm"){
+              font-size: 1.4rem;
+            };
             padding-top: 0.5em;
             margin-top: 0.5rem;
             display: inline-block;
